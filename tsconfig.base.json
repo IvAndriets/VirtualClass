@@ -13,8 +13,12 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": "./VirtualClassFrontend",
-    "paths": {}
+    "baseUrl": ".",
+    "paths": {
+      "@virtual-class-frontend/virtual-class-shared-ui": [
+        "libs/virtual-class-shared-ui/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
