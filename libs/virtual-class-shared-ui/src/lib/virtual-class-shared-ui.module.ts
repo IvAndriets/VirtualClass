@@ -24,8 +24,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const material = [
+  FlexLayoutModule,
   MatProgressSpinnerModule,
   MatProgressBarModule,
   MatToolbarModule,
