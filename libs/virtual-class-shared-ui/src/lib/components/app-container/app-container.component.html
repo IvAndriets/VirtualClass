@@ -24,14 +24,14 @@
     <div *ngIf="!error"
          class="apx-ui-app-container__body__loader__progress">
 
-      <apx-ui-shared-loader></apx-ui-shared-loader>
+      <virtual-class-frontend-shared-loader></virtual-class-frontend-shared-loader>
 
     </div>
 
     <div *ngIf="error"
          class="apx-ui-app-container__body__loader__error">
 
-      <apx-ui-shared-error-placeholder [error]="error"></apx-ui-shared-error-placeholder>
+      <virtual-class-frontend-shared-error-placeholder [error]="error"></virtual-class-frontend-shared-error-placeholder>
 
     </div>
 

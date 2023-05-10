@@ -1,0 +1,34 @@
+<mat-card class="bg-warn mb-20">
+
+  <div fxLayout="row"
+       fxLayoutAlign="space-between start">
+
+    <div fxLayout="row"
+         fxLayoutAlign="start center">
+
+      <mat-icon fxFlex="24px"
+                class="mr-8">error</mat-icon>
+
+      <ng-container *ngIf="error?.message || error?.error; else message">
+        <span class="text-break"
+              [matTooltip]="getError(error)">
+          {{ getError(error, true) }}
+        </span>
+      </ng-container>
+
+      <ng-template #message>
+        Unknown error occurred
+      </ng-template>
+    </div>
+
+    <button *ngIf="dismissible"
+            mat-icon-button
+            aria-label="dismiss"
+            class="mr--16 mt--16"
+            (click)="onDismiss()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </div>
+
+</mat-card>
