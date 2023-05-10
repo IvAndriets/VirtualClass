@@ -21,7 +21,7 @@ export const appRoutes: Route[] = [
       {
         path: 'landing',
         loadChildren: () => import('@virtual-class-frontend/virtual-class-account').then(m => m.VirtualClassAccountModule),
-        // canActivate: [RoleGuard],
+        canActivate: [RoleGuard],
       },
       {
         path: '**',

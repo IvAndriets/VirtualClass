@@ -9,6 +9,7 @@ import { DefaultOAuthInterceptor, OAuthModule } from "angular-oauth2-oidc";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { environment } from "../environments/environment";
 import { VirtualClassConfigModule } from "@virtual-class-frontend/virtual-class-config";
+import { VirtualClassAuthModule } from "@virtual-class-frontend/virtual-class-auth";
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { VirtualClassConfigModule } from "@virtual-class-frontend/virtual-class-
     }),
 
     VirtualClassConfigModule.forRoot(environment),
+    VirtualClassAuthModule.forRoot(),
 
   ],
   providers: [

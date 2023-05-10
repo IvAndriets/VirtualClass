@@ -18,11 +18,20 @@
       "@virtual-class-frontend/virtual-class-account": [
         "libs/virtual-class-account/src/index.ts"
       ],
+      "@virtual-class-frontend/virtual-class-auth": [
+        "libs/virtual-class-auth/src/index.ts"
+      ],
       "@virtual-class-frontend/virtual-class-config": [
         "libs/virtual-class-config/src/index.ts"
       ],
+      "@virtual-class-frontend/virtual-class-core": [
+        "libs/virtual-class-core/src/index.ts"
+      ],
       "@virtual-class-frontend/virtual-class-shared-ui": [
         "libs/virtual-class-shared-ui/src/index.ts"
+      ],
+      "@virtual-class-frontend/virtual-class-web-api-v1": [
+        "libs/virtual-class-web-api-v1/src/index.ts"
       ]
     }
   },
