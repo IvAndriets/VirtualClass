@@ -1,0 +1,48 @@
+<div class="apx-ui-app-container__body"
+     [ngSwitch]="ready && !error">
+
+  <div *ngSwitchCase="true"
+       class="apx-ui-app-container__body__content"
+       [@fadeInOut]="'in'">
+
+    <ng-content></ng-content>
+
+  </div>
+
+  <div *ngSwitchDefault
+       class="apx-ui-app-container__body__loader"
+       fxLayout="column"
+       fxLayoutAlign="center center"
+       [@fadeInOut]="'in'">
+
+    <div class="apx-ui-app-container__body__loader__logo">
+
+      <h1>{{ title }}</h1>
+
+    </div>
+
+    <div *ngIf="!error"
+         class="apx-ui-app-container__body__loader__progress">
+
+      <apx-ui-shared-loader></apx-ui-shared-loader>
+
+    </div>
+
+    <div *ngIf="error"
+         class="apx-ui-app-container__body__loader__error">
+
+      <apx-ui-shared-error-placeholder [error]="error"></apx-ui-shared-error-placeholder>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="pending$ | async"
+     class="apx-ui-app-container__pending"
+     [@fadeInOut]="'in'">
+
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+</div>

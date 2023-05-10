@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
@@ -16,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -25,6 +25,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { components } from "./components";
 
 const material = [
   FlexLayoutModule,
@@ -61,8 +62,29 @@ const material = [
     CommonModule,
     ...material,
   ],
+  declarations: [
+    ...components,
+  ],
   exports: [
     ...material,
+    ...components,
   ]
 })
-export class VirtualClassSharedUiModule {}
+export class VirtualClassSharedUiModule {
+  static forRoot(): ModuleWithProviders<VirtualClassSharedUiModule> {
+    return {
+      ngModule: VirtualClassSharedUiModule,
+      providers: [
+        {
+          provide: MAT_DIALOG_DEFAULT_OPTIONS,
+          useValue: {
+            width: '600px',
+            // TODO use default styles for dialogs for future
+            // panelClass: 'apx-ui-dialog-container',
+            hasBackdrop: true,
+          },
+        },
+      ],
+    };
+  }
+}

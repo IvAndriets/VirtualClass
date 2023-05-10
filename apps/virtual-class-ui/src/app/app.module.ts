@@ -17,7 +17,6 @@ import { VirtualClassAuthModule } from "@virtual-class-frontend/virtual-class-au
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    VirtualClassSharedUiModule,
     HttpClientModule,
     OAuthModule.forRoot({
       resourceServer: {
@@ -27,6 +26,8 @@ import { VirtualClassAuthModule } from "@virtual-class-frontend/virtual-class-au
         sendAccessToken: true,
       },
     }),
+
+    VirtualClassSharedUiModule.forRoot(),
 
     VirtualClassConfigModule.forRoot(environment),
     VirtualClassAuthModule.forRoot(),

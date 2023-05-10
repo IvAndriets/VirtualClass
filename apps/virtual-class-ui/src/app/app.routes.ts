@@ -1,5 +1,4 @@
 import { Route } from "@angular/router";
-import { VirtualClassAccountModule } from "@virtual-class-frontend/virtual-class-account";
 
 export const appRoutes: Route[] = [
   {
@@ -21,7 +20,6 @@ export const appRoutes: Route[] = [
       {
         path: 'landing',
         loadChildren: () => import('@virtual-class-frontend/virtual-class-account').then(m => m.VirtualClassAccountModule),
-        canActivate: [RoleGuard],
       },
       {
         path: '**',

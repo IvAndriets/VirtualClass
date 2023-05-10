@@ -1,4 +1,7 @@
-<div fxLayout="row" fxLayoutAlign="space-around center" >
-  <button mat-raised-button color="primary">Primary</button>
-</div>
-<router-outlet></router-outlet>
+<virtual-class-frontend-shared-ui-app-container [ready]="ready$ | async"
+                             [error]="error$ | async"
+                             [title]="title$ | async">
+
+  <router-outlet *ngIf="ready$ | async"></router-outlet>
+
+</virtual-class-frontend-shared-ui-app-container>
