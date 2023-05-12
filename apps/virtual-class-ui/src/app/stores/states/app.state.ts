@@ -1,12 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserStateService } from '@apx-ui/apx-web-api-v1';
 import { select, Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { filter, mapTo, take } from 'rxjs/operators';
 
 import { AppActions } from '../actions';
 import { selectAppError } from '../selectors';
+import { UserStateService } from "@virtual-class-frontend/virtual-class-web-api-v1";
 
 @Injectable()
 export class AppStateService {

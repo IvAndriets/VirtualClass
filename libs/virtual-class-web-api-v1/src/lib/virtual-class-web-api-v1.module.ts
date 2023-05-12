@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { clients } from "./clients";
 import { VirtualClassConfigModule } from "@virtual-class-frontend/virtual-class-config";
 import { HttpClientModule } from "@angular/common/http";
+import { states } from "./stores/states";
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ export class VirtualClassWebApiV1Module {
       ngModule: VirtualClassWebApiV1Module,
       providers: [
         ...clients,
-        // ...states,
+        ...states,
         // ...guards,
       ],
     };

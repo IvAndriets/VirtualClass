@@ -1,4 +1,5 @@
 import { Route } from "@angular/router";
+import { VirtualClassUiSignInCallBackComponent } from "./components";
 
 export const appRoutes: Route[] = [
   {
@@ -9,10 +10,10 @@ export const appRoutes: Route[] = [
       //   path: 'error',
       //   component: fromContainers.AppErrorContainerComponent,
       // },
-      // {
-      //   path: 'authcallback',
-      //   component: SignInCallBackComponent,
-      // },
+      {
+        path: 'authcallback',
+        component: VirtualClassUiSignInCallBackComponent,
+      },
       // {
       //   path: 'postlogout',
       //   component: SignInCallBackComponent,

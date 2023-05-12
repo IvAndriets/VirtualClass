@@ -17,7 +17,7 @@ export class AuthService {
   ) {
 
     this.settings = {
-      scope: 'openid profile email phone halliburton-asg',
+      scope: 'openid profile email',
       issuer: this.config.getEnvironment().authSettings.authority,
       clientId: this.config.getEnvironment().authSettings.client_id,
       redirectUri: this.config.getEnvironment().authSettings.redirect_uri,
@@ -42,13 +42,13 @@ export class AuthService {
       ),
     ).subscribe(e => {
       console.log(e.type);
+      console.log('step 2');
 
       this.oauthService
         .tryLogin()
         .then(info => {
           console.log('tryLogin ok', info);
           if (!info) {
-            console.error('tryLogin error, logOut');
             this.zone.run(() => {
               this.router.navigateByUrl('/');
               location.reload();

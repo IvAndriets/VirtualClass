@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, combineLatest, from, of } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { filter, map, switchMap, tap } from 'rxjs/operators';
 
 import { AppActions } from '../actions';
 import { AuthService } from "@virtual-class-frontend/virtual-class-auth";
@@ -20,8 +20,6 @@ export class AppEffects {
       switchMap(() => {
         return of(this.auth.getUserToken()).pipe(
           switchMap(token => {
-            console.error('getUserToken', token);
-
             const url = this.document.location.pathname;
             const hash = this.document.location.hash;
             const search = this.document.location.search;
