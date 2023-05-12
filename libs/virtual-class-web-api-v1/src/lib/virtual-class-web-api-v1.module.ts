@@ -1,7 +1,25 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { clients } from "./clients";
+import { VirtualClassConfigModule } from "@virtual-class-frontend/virtual-class-config";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    VirtualClassConfigModule,
+  ],
 })
-export class VirtualClassWebApiV1Module {}
+export class VirtualClassWebApiV1Module {
+  static forRoot(): ModuleWithProviders<VirtualClassWebApiV1Module> {
+    return {
+      ngModule: VirtualClassWebApiV1Module,
+      providers: [
+        ...clients,
+        // ...states,
+        // ...guards,
+      ],
+    };
+  }
+}

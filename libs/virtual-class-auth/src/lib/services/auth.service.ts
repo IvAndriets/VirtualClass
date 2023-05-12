@@ -27,6 +27,7 @@ export class AuthService {
       silentRefreshRedirectUri: this.config.getEnvironment().authSettings.redirect_uri,
       postLogoutRedirectUri: this.config.getEnvironment().authSettings.post_logout_redirect_uri,
       showDebugInformation: true,
+      requireHttps: false,
     };
 
     this.oauthService.configure(this.settings);

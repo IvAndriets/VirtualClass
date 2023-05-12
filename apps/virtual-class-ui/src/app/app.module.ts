@@ -10,6 +10,13 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { environment } from "../environments/environment";
 import { VirtualClassConfigModule } from "@virtual-class-frontend/virtual-class-config";
 import { VirtualClassAuthModule } from "@virtual-class-frontend/virtual-class-auth";
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { RouterState, StoreRouterConnectingModule } from "@ngrx/router-store";
+import { extModules } from "./build-specifics";
+import { ROOT_REDUCERS } from "./stores/reducers";
+import { effects } from "./stores/effects";
+import { VirtualClassWebApiV1Module } from "@virtual-class-frontend/virtual-class-web-api-v1";
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,10 +34,26 @@ import { VirtualClassAuthModule } from "@virtual-class-frontend/virtual-class-au
       },
     }),
 
-    VirtualClassSharedUiModule.forRoot(),
+    StoreModule.forRoot(ROOT_REDUCERS, {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+        strictStateSerializability: false,
+        strictActionSerializability: false,
+      },
+    }),
+    extModules,
 
+    // Ngrx Effects Imports.
+    EffectsModule.forRoot(effects),
+    StoreRouterConnectingModule.forRoot({
+      routerState: RouterState.Minimal,
+    }),
+
+    VirtualClassSharedUiModule.forRoot(),
     VirtualClassConfigModule.forRoot(environment),
     VirtualClassAuthModule.forRoot(),
+    VirtualClassWebApiV1Module.forRoot(),
 
   ],
   providers: [
