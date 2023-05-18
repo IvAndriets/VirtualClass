@@ -1,15 +1,16 @@
 import { Route } from "@angular/router";
 import { VirtualClassUiSignInCallBackComponent } from "./components";
+import * as fromContainers from './containers';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    // component: fromContainers.AppLayoutContainerComponent,
+    component: fromContainers.AppLayoutContainerComponent,
     children: [
-      // {
-      //   path: 'error',
-      //   component: fromContainers.AppErrorContainerComponent,
-      // },
+      {
+        path: 'error',
+        component: fromContainers.AppErrorContainerComponent,
+      },
       {
         path: 'authcallback',
         component: VirtualClassUiSignInCallBackComponent,

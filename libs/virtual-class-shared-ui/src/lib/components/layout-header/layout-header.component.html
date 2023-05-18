@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row>
+
+    <div fxLayout
+         fxLayoutGap="16px">
+      <ng-content select="[logo]"></ng-content>
+      <ng-content select="[left-section]"></ng-content>
+    </div>
+
+    <div fxFlex
+         fxLayout
+         fxLayoutAlign="flex-end"
+         class="h-100 mr--16">
+      <ng-content select="[right-section]"></ng-content>
+    </div>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>

@@ -1,0 +1,56 @@
+<virtual-class-frontend-shared-page *ngIf="type$ | async as errorType"
+                    [header]="false">
+
+  <ng-container body>
+
+    <div [ngSwitch]="errorType"
+         fxLayout="column"
+         fxLayoutAlign="space-around center"
+         class="error-container">
+
+      <div class="pt-64 mb-32">
+        <mat-icon class="md-64">mood_bad</mat-icon>
+      </div>
+
+      <div class="mat-display-1">
+
+        <ng-container *ngSwitchCase="'403'">
+          403: You shall not pass!
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'404'">
+          404: Uh oh! Something is missing here.
+        </ng-container>
+
+        <ng-container *ngSwitchDefault>
+          Oops! What happened?
+        </ng-container>
+
+      </div>
+
+      <div class="mat-title">
+        <p *ngSwitchCase="'403'">
+          We're sorry, you are not authorized to access this page. Try signing in or checking your permissions.
+        </p>
+        <p *ngSwitchCase="'404'">
+          We're sorry, the page you requested could not be found. We recommend going back to the homepage.
+        </p>
+        <p *ngSwitchDefault>
+          We're sorry, but something went wrong. We recommend reloading or going back to the homepage.
+        </p>
+      </div>
+
+      <div>
+        <a *ngIf="errorType !== '403'"
+           mat-stroked-button
+           data-test-id="action-primary"
+           [routerLink]="['/']">
+          Back to homepage
+        </a>
+      </div>
+
+    </div>
+
+  </ng-container>
+
+</virtual-class-frontend-shared-page>

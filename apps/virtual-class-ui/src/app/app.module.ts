@@ -17,11 +17,16 @@ import { extModules } from './build-specifics';
 import { ROOT_REDUCERS } from './stores/reducers';
 import { effects } from './stores/effects';
 import { VirtualClassWebApiV1Module } from '@virtual-class-frontend/virtual-class-web-api-v1';
-import { VirtualClassUiSignInCallBackComponent } from './components/virtual-class-ui-sign-in-call-back/virtual-class-ui-sign-in-call-back.component';
 import { states } from "./stores/states";
+import { containers } from "./containers";
+import { components } from "./components";
 
 @NgModule({
-  declarations: [AppComponent, VirtualClassUiSignInCallBackComponent],
+  declarations: [
+    AppComponent,
+    ...components,
+    ...containers,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

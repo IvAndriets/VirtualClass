@@ -1,0 +1,18 @@
+<virtual-class-frontend-shared-layout>
+
+  <ng-container header>
+
+    <virtual-class-frontend-app-header [user]="user$ | async">
+
+<!--      [account]="account$ | async"-->
+    </virtual-class-frontend-app-header>
+
+  </ng-container>
+
+  <ng-container body>
+
+    <router-outlet></router-outlet>
+
+  </ng-container>
+
+</virtual-class-frontend-shared-layout>
