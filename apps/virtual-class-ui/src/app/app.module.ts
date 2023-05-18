@@ -62,7 +62,7 @@ import { states } from "./stores/states";
       multi: true,
     },
 
-    ...states,
+    ...states as any,
   ],
   bootstrap: [
     AppComponent,

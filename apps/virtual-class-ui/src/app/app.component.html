@@ -1,6 +1,6 @@
 <virtual-class-frontend-shared-ui-app-container [ready]="ready$ | async"
-                             [error]="error$ | async"
-                             [title]="title$ | async">
+                                                [error]="error$ | async"
+                                                [title]="title$ | async">
 
   <router-outlet *ngIf="ready$ | async"></router-outlet>
 

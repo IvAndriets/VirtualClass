@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
-import { filter, mapTo, take } from 'rxjs/operators';
+import { filter, mapTo, take, tap } from 'rxjs/operators';
 
 import { AppActions } from '../actions';
 import { selectAppError } from '../selectors';

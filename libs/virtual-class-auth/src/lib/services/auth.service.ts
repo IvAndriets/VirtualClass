@@ -1,13 +1,13 @@
-/* eslint-disable no-console */
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { filter, Observable, of } from 'rxjs';
 import { ConfigService } from "@virtual-class-frontend/virtual-class-config";
+import jwt_decode from "jwt-decode";
 
 @Injectable()
 export class AuthService {
-  private settings: any;
+  private readonly settings: any;
 
   constructor(
     private config: ConfigService,
@@ -17,7 +17,7 @@ export class AuthService {
   ) {
 
     this.settings = {
-      scope: 'openid profile email',
+      scope: 'openid profile email roles',
       issuer: this.config.getEnvironment().authSettings.authority,
       clientId: this.config.getEnvironment().authSettings.client_id,
       redirectUri: this.config.getEnvironment().authSettings.redirect_uri,
@@ -84,8 +84,8 @@ export class AuthService {
     return of(this.oauthService.getIdentityClaims());
   }
 
-  getUserClaims(): any {
-    return this.oauthService.getIdentityClaims();
+  getUserTokenInfo(): any {
+    return jwt_decode(this.oauthService.getAccessToken());
   }
 
   getUserToken(): any {

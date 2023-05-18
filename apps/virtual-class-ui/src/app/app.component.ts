@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.title$ = of('Virtual class');
+    this.title$ = of('Virtual Class');
     this.state.boot();
 
     this.ready$ = combineLatest([

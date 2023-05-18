@@ -27,7 +27,9 @@ export class AppContainerComponent implements OnInit {
 
   pending$!: Observable<boolean>;
 
-  constructor(private readonly loader: LoadingBarService) {
+  constructor(
+    private readonly loader: LoadingBarService,
+  ) {
   }
 
   ngOnInit(): void {

@@ -6,7 +6,7 @@ import { ConfigService } from "@virtual-class-frontend/virtual-class-config";
 import { ClientBaseService, ClientOptions } from "@virtual-class-frontend/virtual-class-core";
 
 @Injectable()
-export class ApxSolsticeWebClientService extends ClientBaseService {
+export class VirtualClassWebClientService extends ClientBaseService {
 
   constructor(
     http: HttpClient,
@@ -59,20 +59,20 @@ export class ApxSolsticeWebClientService extends ClientBaseService {
     return this.get(`/GetAppRoles`, _options);
   }
 
-  // getAccounts(options: ClientOptions = {}): Observable<Account[]> {
-  //   const _options = {
-  //     ...options,
-  //     params: {
-  //       ...options.params,
-  //     },
-  //   };
-  //
-  //   return this.get(`/AccountsLite`, _options)
-  //     .pipe(
-  //       map(accounts => accounts
-  //         .sort((a, b) => a.CustomerName.toLowerCase().localeCompare(b.CustomerName.toLowerCase()))),
-  //     );
-  // }
+  getAccounts(options: ClientOptions = {}): Observable<any[]> {
+    const _options = {
+      ...options,
+      params: {
+        ...options.params,
+      },
+    };
+
+    return this.get(`api/users/me/`, _options)
+      // .pipe(
+      //   map(accounts => accounts
+      //     .sort((a, b) => a.CustomerName.toLowerCase().localeCompare(b.CustomerName.toLowerCase()))),
+      // );
+  }
   //
   // getAccountById(accountId: string, options: ClientOptions = {}): Observable<AccountExtended> {
   //   const _options = {

@@ -7,10 +7,10 @@ export const boot = createAction('[App] Boot');
 export const bootSuccess = createAction(
   '[App] Boot Success',
   props<{
-    accounts: any[];
     // accounts: Account[];
+    accounts: any;
     user: any;
-    roles: string[];
+    roles: any;
   }>(),
 );
 

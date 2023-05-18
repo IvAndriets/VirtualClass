@@ -1,7 +1,7 @@
-import { ApxSolsticeWebClientService } from './apx-solstice-web-client.service';
+import { VirtualClassWebClientService } from "./virtual-class-web-client.service";
 
 export const clients: any[] = [
-  ApxSolsticeWebClientService,
+  VirtualClassWebClientService,
 ];
 
-export * from './apx-solstice-web-client.service';
+export * from './virtual-class-web-client.service';

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+// import { Permissions, PERMISSIONS_CONFIG } from '@apx-ui/apx-config';
 import { select, Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -30,7 +31,7 @@ export class UserStateService {
   //     this.store.pipe(select(fromUserSelectors.selectCurrentUserAccRoles)),
   //   ]).pipe(
   //     filter(([user, roles]) => !!user && !!roles),
-  //     // map(([, roles, accRoles]) => [ ...roles, ...accRoles]),
+  //     map(([, roles, accRoles]) => [ ...roles, ...accRoles]),
   //   );
   // }
 
