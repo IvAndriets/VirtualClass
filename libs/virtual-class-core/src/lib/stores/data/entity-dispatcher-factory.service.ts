@@ -150,13 +150,13 @@ export class LiftEntityDispatcherBase<T> extends EntityDispatcherBase<T> {
 
   private sanitizeData<D = any>(defaultData: D): D {
 
-    // if (!Array.isArray(defaultData)) {
-    //   const dataKey = Object.keys(defaultData).find(k => Array.isArray((defaultData as any)[k]));
-    //
-    //   if (dataKey) {
-    //     return (defaultData as any)[dataKey];
-    //   }
-    // }
+    if (!Array.isArray(defaultData)) {
+      const dataKey = Object.keys(defaultData as any).find(k => Array.isArray((defaultData as any)[k]));
+
+      if (dataKey) {
+        return (defaultData as any)[dataKey];
+      }
+    }
 
     return defaultData;
 
