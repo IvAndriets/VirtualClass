@@ -30,6 +30,9 @@
       "@virtual-class-frontend/virtual-class-shared-ui": [
         "libs/virtual-class-shared-ui/src/index.ts"
       ],
+      "@virtual-class-frontend/virtual-class-store": [
+        "libs/virtual-class-store/src/index.ts"
+      ],
       "@virtual-class-frontend/virtual-class-web-api-v1": [
         "libs/virtual-class-web-api-v1/src/index.ts"
       ]

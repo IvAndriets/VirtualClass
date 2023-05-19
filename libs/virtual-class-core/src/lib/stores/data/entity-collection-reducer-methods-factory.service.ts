@@ -69,7 +69,7 @@ export class LiftEntityCollectionReducerMethods<T> extends EntityCollectionReduc
     const defaultData = (action.payload?.data ?? []) as D;
 
     if (!Array.isArray(defaultData)) {
-      const dataKey = Object.keys(defaultData).find(k => Array.isArray((defaultData as any)[k]));
+      const dataKey = Object.keys(defaultData as any).find(k => Array.isArray((defaultData as any)[k]));
 
       if (dataKey) {
         return (defaultData as any)[dataKey];
@@ -88,7 +88,7 @@ export class LiftEntityCollectionReducerMethods<T> extends EntityCollectionReduc
 
       const paginationObject: any = { ...defaultData };
 
-      const dataKey = Object.keys(defaultData).find(k => Array.isArray((defaultData as any)[k]));
+      const dataKey = Object.keys(defaultData as any).find(k => Array.isArray((defaultData as any)[k]));
 
       if (dataKey) {
         delete paginationObject[dataKey];
