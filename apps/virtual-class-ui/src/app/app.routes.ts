@@ -1,6 +1,7 @@
 import { Route } from "@angular/router";
 import { VirtualClassUiSignInCallBackComponent } from "./components";
 import * as fromContainers from './containers';
+import { SignInCallBackComponent } from "./components/sign-in-call-back/sign-in-call-back.component";
 
 export const appRoutes: Route[] = [
   {
@@ -15,17 +16,21 @@ export const appRoutes: Route[] = [
         path: 'authcallback',
         component: VirtualClassUiSignInCallBackComponent,
       },
-      // {
-      //   path: 'postlogout',
-      //   component: SignInCallBackComponent,
-      // },
+      {
+        path: 'postlogout',
+        component: SignInCallBackComponent,
+      },
       {
         path: 'landing',
         loadChildren: () => import('@virtual-class-frontend/virtual-class-account').then(m => m.VirtualClassAccountModule),
       },
       {
+        path: 'courses',
+        loadChildren: () => import('@virtual-class-frontend/virtual-class-courses').then(m => m.VirtualClassCoursesModule),
+      },
+      {
         path: '**',
-        redirectTo: 'landing',
+        redirectTo: 'courses',
         pathMatch: 'full',
       },
     ],

@@ -27,6 +27,9 @@
       "@virtual-class-frontend/virtual-class-core": [
         "libs/virtual-class-core/src/index.ts"
       ],
+      "@virtual-class-frontend/virtual-class-courses": [
+        "libs/virtual-class-courses/src/index.ts"
+      ],
       "@virtual-class-frontend/virtual-class-shared-ui": [
         "libs/virtual-class-shared-ui/src/index.ts"
       ],

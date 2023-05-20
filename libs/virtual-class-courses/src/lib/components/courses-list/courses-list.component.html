@@ -1,0 +1,66 @@
+<virtual-class-frontend-shared-page>
+
+  <ng-container title>
+    <div fxLayout="row"
+         fxLayoutAlign="start center">
+      <h2 class="mb-0"
+          data-test-id="title">Courses</h2>
+    </div>
+  </ng-container>
+
+  <ng-container action>
+
+    <div fxLayout="row"
+         fxLayoutAlign="end center"
+         fxLayoutGap="24px">
+
+<!--      <apx-ui-shared-search-demand placeholder="Find contacts..."-->
+<!--                                   [value]="search$ | async"-->
+<!--                                   (update)="onSearchUpdate($event)">-->
+<!--      </apx-ui-shared-search-demand>-->
+
+      <button mat-stroked-button
+              color="primary"
+              data-test-id="createNewCourses">
+        Add Courses
+      </button>
+
+    </div>
+  </ng-container>
+
+  <ng-container body>
+
+    <ng-container *ngIf="coursesList$ | async as coursesList; else emptyStateContainer">
+
+      <ng-container *ngIf="coursesList.length > 0; else emptyStateContainer">
+
+        <virtual-class-frontend-courses-card-list [courses]="coursesList">
+        </virtual-class-frontend-courses-card-list>
+
+<!--        <ng-container *ngIf="pagination$ | async as pagination">-->
+
+<!--          <mat-paginator [pageIndex]="pagination.index"-->
+<!--                         [length]="getTotalCount() | async"-->
+<!--                         [pageSize]="pagination.limit"-->
+<!--                         [pageSizeOptions]="paginationLimits"-->
+<!--                         (page)="pageChangeEvent($event)">-->
+<!--          </mat-paginator>-->
+
+<!--        </ng-container>-->
+
+      </ng-container>
+
+    </ng-container>
+
+    <ng-template #emptyStateContainer>
+      <div class="empty-state"
+           fxLayout="row"
+           fxLayoutAlign="center center">
+        <h3 data-test-id="emptyList">
+          There is no data to show.
+        </h3>
+      </div>
+    </ng-template>
+
+  </ng-container>
+</virtual-class-frontend-shared-page>

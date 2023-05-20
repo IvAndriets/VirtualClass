@@ -23,7 +23,7 @@ export class ApxApiHttpUrlGenerator extends DefaultHttpUrlGenerator {
 
     let resourceUrls = this.knownHttpResourceUrls[entityName];
     if (!resourceUrls) {
-      const nRoot = normalizeRoot((this.config as any).entityRoot[entityName] || root);
+      const nRoot = normalizeRoot(root);
       const url = `${ nRoot }/${ this.pluralizzer.pluralize(
         entityName,
       ) }/`.toLowerCase();

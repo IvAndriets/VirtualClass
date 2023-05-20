@@ -42,22 +42,6 @@ export class DataService<T> extends DefaultDataService<T> {
     return this.routerState.getParam$('accountId').pipe(
       take(1),
       map(accountId => {
-        if (url.includes('/route/getall')) {
-          return `${accountId ? accountId : 'ForUser'}`;
-        }
-        if (url.includes('/getaccountproducts/')) {
-          return accountId || '';
-        }
-        if (url.includes('/logs/getsamplecapturelogs')) {
-          return `Coupon Analysis/${accountId ? accountId : 'ForUser'}`;
-        }
-        if (
-          url.toLowerCase().includes('/logs/')
-          || url.toLowerCase().includes('delivery/getstimdeliverylist')
-          || url.toLowerCase().includes('stiminventory/getstimulationinvetorydetails')
-        ) {
-          return accountId ?? 'ForUser';
-        }
         return '';
       }),
     );
