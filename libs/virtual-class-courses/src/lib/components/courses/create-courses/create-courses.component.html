@@ -1,55 +1,78 @@
-<h3 mat-dialog-title>Create Account</h3>
+<virtual-class-frontend-shared-page>
 
-<!--<apx-ui-shared-state-container [state]="status"-->
-<!--                               [resolved]="resolved">-->
-<!--  <ng-template #resolved>-->
-<!--  </ng-template>-->
-<!--</apx-ui-shared-state-container>-->
+  <ng-container title>
+    <h2>KPI Controls</h2>
+  </ng-container>
 
+<!--  <ng-container body>-->
+<!--    <apx-ui-shared-page-category-list *ngFor="let option of data.pages" [option]="option">-->
+<!--    </apx-ui-shared-page-category-list>-->
+<!--  </ng-container>-->
+<!--  -->
+<!--  <ng-container title>-->
+<!--    <div fxLayout="row"-->
+<!--         fxLayoutAlign="start center">-->
+<!--      <h2 class="mb-0"-->
+<!--          data-test-id="title">Create Account-->
+<!--      </h2>-->
+<!--    </div>-->
+<!--  </ng-container>-->
 
-<form *ngIf="form"
-     fxLayout="column"
-     fxLayoutAlign="start start"
-     [formGroup]="form"
-     (submit)="onSubmit()">
-
-  <mat-form-field appearance="outline">
-    <mat-label>Name</mat-label>
-    <input matInput
-           placeholder="Name"
-           type="text"
-           formControlName="name">
-    <mat-error>
-      Required
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Description</mat-label>
-    <input matInput
-           placeholder="Description"
-           type="text"
-           formControlName="description">
-    <mat-error>
-      Required
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Full description</mat-label>
-    <input matInput
-           placeholder="Full description"
-           type="text"
-           formControlName="full_description">
-    <mat-error>
-      Required
-    </mat-error>
-  </mat-form-field>
+  <ng-container body>
 
 
-  <button mat-flat-button
-          type="submit"
-          color="primary">
-    Save
-  </button>
-</form>
+    <!--<apx-ui-shared-state-container [state]="status"-->
+    <!--                               [resolved]="resolved">-->
+    <!--  <ng-template #resolved>-->
+    <!--  </ng-template>-->
+    <!--</apx-ui-shared-state-container>-->
+
+
+    <form *ngIf="form"
+          fxLayout="column"
+          fxLayoutAlign="start start"
+          [formGroup]="form"
+          (submit)="onSubmit()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput
+               placeholder="Name"
+               type="text"
+               formControlName="name">
+        <mat-error>
+          Required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput
+               placeholder="Description"
+               type="text"
+               formControlName="description">
+        <mat-error>
+          Required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Full description</mat-label>
+        <textarea matInput
+                  placeholder="Full description"
+                  type="text"
+                  formControlName="full_description"></textarea>
+        <mat-error>
+          Required
+        </mat-error>
+      </mat-form-field>
+
+
+      <button mat-flat-button
+              type="submit"
+              color="primary">
+        Save
+      </button>
+    </form>
+  </ng-container>
+</virtual-class-frontend-shared-page>
