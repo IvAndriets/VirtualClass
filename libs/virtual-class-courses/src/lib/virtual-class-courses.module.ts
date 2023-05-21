@@ -15,6 +15,8 @@ import {
   Pluralizer,
 } from '@ngrx/data';
 import { VirtualClassSharedUiModule } from '@virtual-class-frontend/virtual-class-shared-ui';
+import { LectureCardComponent } from './components/lectures/lecture-card/lecture-card.component';
+import { EditCourseComponent } from './components/courses/edit-course/edit-course.component';
 
 @NgModule({
   imports: [
@@ -27,6 +29,9 @@ import { VirtualClassSharedUiModule } from '@virtual-class-frontend/virtual-clas
   ],
   declarations: [
     ...components,
+    LectureCardComponent,
+    EditCourseComponent,
+    EditCourseComponent,
   ],
 })
 export class VirtualClassCoursesModule {

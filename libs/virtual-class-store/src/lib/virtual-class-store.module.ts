@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import { services } from "./services";
 import { DefaultPluralizer, EntityDefinitionService, Pluralizer } from "@ngrx/data";
 import { entityMetadataMap, pluralNames } from "./store";
+import { EffectsModule } from "@ngrx/effects";
+import { effects } from "./store/effects";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+
+    EffectsModule.forFeature(effects),
   ],
   providers: [
     ...services,

@@ -1,40 +1,42 @@
-<ng-container *ngIf="
-  courses$ | async as course">
-  <h3> {{course.name}}</h3>
-  <div>
-    <b>Owner: </b>  {{course.owner}}
-  </div>
-  <div>
-    <b>Description: </b>  {{course.description}}
-  </div>
-  <div>
-    <b>Full description: </b>  {{course.full_description}}
-  </div>
+<virtual-class-frontend-shared-page *ngIf="courses$ | async as course">
 
-  <br>
-  <br>
+  <ng-container title>
+    <h2 class="mb-0">{{course.name}}</h2>
+  </ng-container>
 
-  <div>
-    Lectures       <a mat-button routerLink="lectures/new">Add Lectures</a>
+  <ng-container body>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end">
+      <mat-tab label="Board">
+        <div class="p-4">
+          <div fxLayout="row"
+               fxLayoutAlign="space-between center"
+               fxLayoutGap="24px"
+               class="mb-24">
 
+            <h3 class="mb-0">Lectures</h3>
 
+            <a mat-raised-button routerLink="lectures/new">Add Lecture</a>
 
-    <div *ngFor="let lecture of course.lectures">
-      <a [routerLink]="'lectures/'+lecture.id" >
-        {{lecture.name}}
-      </a>
-      <mat-divider></mat-divider>
+          </div>
 
-    </div>
-  </div>
+          <div *ngFor="let lecture of course.lectures">
+            <virtual-class-frontend-lecture-card [lecture]="lecture">
+            </virtual-class-frontend-lecture-card>
+          </div>
+        </div>
 
-  <br>
-  <br>
+      </mat-tab>
 
-  <div>
-    Students
-  </div>
-</ng-container>
+      <mat-tab label="About">
+        <div class="p-4">
+          <virtual-class-frontend-edit-course [course]="course">
+          </virtual-class-frontend-edit-course>
+        </div>
+      </mat-tab>
 
-
-
+      <mat-tab label="Statistic">
+        Students
+      </mat-tab>
+    </mat-tab-group>
+  </ng-container>
+</virtual-class-frontend-shared-page>

@@ -1,0 +1,97 @@
+<div>
+  <div>
+    <div fxLayout
+         fxLayoutAlign="end center"
+         fxLayoutGap="8px">
+      <button mat-icon-button
+              aria-label="logOut"
+              [matTooltip]="editMode ? 'Preview course' : 'Edit Course'"
+              (click)="onToggleMode()">
+        <mat-icon>
+          {{editMode ? 'preview' : 'edit_document'}}
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <ng-container *ngIf="!editMode; else editModeBlock">
+    <div class="mb-24">
+      <div><span class="text-muted">Name:</span></div>
+      <div>{{course.name}}</div>
+    </div>
+    <div class="mb-24">
+      <div><span class="text-muted">Description:</span></div>
+      <div>{{course.description}}</div>
+    </div>
+    <div class="mb-24">
+      <div><span class="text-muted">Full description:</span></div>
+      <div>{{course.full_description}}</div>
+    </div>
+    <div class="mb-24">
+      <div><span class="text-muted">Active:</span></div>
+      <div>{{course.active}}</div>
+    </div>
+  </ng-container>
+
+
+  <div class="mb-24">
+    <div><span class="text-muted">Owner:</span> {{course.owner}}</div>
+    <div><span class="text-muted">Created Data:</span> {{course.created_at | date: 'dd/MM/yyyy, hh:mm'}}</div>
+    <div><span class="text-muted">Updated Data:</span> {{course.updated_at | date: 'dd/MM/yyyy, hh:mm'}}</div>
+  </div>
+
+</div>
+
+<ng-template #editModeBlock>
+  <form *ngIf="form"
+        [formGroup]="form"
+        fxLayout="column"
+        fxLayoutAlign="start start"
+        class="mb-24"
+        (submit)="onSubmit()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput
+             placeholder="Name"
+             type="text"
+             formControlName="name">
+      <mat-error>
+        Required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput
+             placeholder="Description"
+             type="text"
+             formControlName="description">
+      <mat-error>
+        Required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Full description</mat-label>
+      <textarea matInput
+                placeholder="Full description"
+                type="text"
+                formControlName="full_description"></textarea>
+      <mat-error>
+        Required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-slide-toggle formControlName="active"
+                      class="mb-24">
+      Slide me!
+    </mat-slide-toggle>
+
+    <button mat-flat-button
+            type="submit"
+            color="primary">
+      Update
+    </button>
+  </form>
+</ng-template>

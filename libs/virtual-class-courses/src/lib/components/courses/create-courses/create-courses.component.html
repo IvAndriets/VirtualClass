@@ -1,32 +1,10 @@
 <virtual-class-frontend-shared-page>
 
   <ng-container title>
-    <h2>KPI Controls</h2>
+    <h2 class="mb-0">Create Course</h2>
   </ng-container>
 
-<!--  <ng-container body>-->
-<!--    <apx-ui-shared-page-category-list *ngFor="let option of data.pages" [option]="option">-->
-<!--    </apx-ui-shared-page-category-list>-->
-<!--  </ng-container>-->
-<!--  -->
-<!--  <ng-container title>-->
-<!--    <div fxLayout="row"-->
-<!--         fxLayoutAlign="start center">-->
-<!--      <h2 class="mb-0"-->
-<!--          data-test-id="title">Create Account-->
-<!--      </h2>-->
-<!--    </div>-->
-<!--  </ng-container>-->
-
   <ng-container body>
-
-
-    <!--<apx-ui-shared-state-container [state]="status"-->
-    <!--                               [resolved]="resolved">-->
-    <!--  <ng-template #resolved>-->
-    <!--  </ng-template>-->
-    <!--</apx-ui-shared-state-container>-->
-
 
     <form *ngIf="form"
           fxLayout="column"
@@ -66,7 +44,6 @@
           Required
         </mat-error>
       </mat-form-field>
-
 
       <button mat-flat-button
               type="submit"

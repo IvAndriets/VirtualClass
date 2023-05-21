@@ -26,6 +26,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { components } from "./components";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 const material = [
   FlexLayoutModule,
@@ -55,6 +57,8 @@ const material = [
   MatMenuModule,
   MatChipsModule,
   MatAutocompleteModule,
+  MatTabsModule,
+  MatSlideToggleModule,
 ];
 
 @NgModule({

@@ -23,7 +23,7 @@ export class CreateLectureComponent implements OnInit {
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
       type: ['lecture', [Validators.required]],
-      "max_grade": 2147483647,
+      max_grade: 0,
       "due_date": "2023-05-21T14:21:36.540Z"
     });
   }

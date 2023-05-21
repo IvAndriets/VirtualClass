@@ -26,13 +26,10 @@ export class CreateCoursesComponent implements OnInit {
   }
 
   onSubmit() {
-    console.error('onSubmit');
     if (this.form.valid) {
-      console.error('this.form.value');
-
       this.coursesService.add(this.form.value);
     } else {
-      console.error('not valid')
+      this.form.markAllAsTouched()
     }
   }
 }
