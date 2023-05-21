@@ -1,8 +1,10 @@
 <mat-card class="mat-elevation-z2">
 
-  <mat-card-header>
-    <mat-card-title fxLayout="row">
-      <h3>{{course.name}}</h3>
+  <mat-card-header fxLayout="column">
+    <mat-card-title fxLayout="row"
+                    fxLayoutAlign="space-between center"
+                    class="w-100">
+      <h3 class="m-0">{{course.name}}</h3>
 
       <mat-icon [class]="course.active ? 'text-success' : 'text-muted'">noise_control_off</mat-icon>
 
