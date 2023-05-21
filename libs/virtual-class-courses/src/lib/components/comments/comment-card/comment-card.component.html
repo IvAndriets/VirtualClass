@@ -1,0 +1,30 @@
+<div fxLayout="row wrap"
+     fxLayoutAlign="end start">
+  <div fxFill
+       fxLayout="row"
+       fxLayoutAlign="end end"
+       class="text-muted mb-8">
+  <span>
+    <b>{{comment.owner}}</b>
+    {{comment.created_at | date: 'dd/MM/yyyy, hh:mm' }}
+  </span>
+
+  <button mat-icon-button
+          color="warn"
+          aria-label="delete"
+          class="mat-icon-size-24"
+          (click)="onDelete(comment.id)">
+    <mat-icon>delete</mat-icon>
+  </button>
+
+  </div>
+  <div fxLayout="row"
+       fxLayoutAlign="end start">
+    <mat-card class="mat-elevation-z2">
+      <mat-card-content>
+        {{comment.comment}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

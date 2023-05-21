@@ -1,0 +1,11 @@
+<div fxLayout="column"
+     fxLayoutGap="16px">
+
+  <ng-container *ngFor="let comment of comments">
+
+    <virtual-class-frontend-comment-card [comment]="comment">
+    </virtual-class-frontend-comment-card>
+
+  </ng-container>
+
+</div>

@@ -1,0 +1,66 @@
+@mixin md-icon-size($size: 24px) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+  line-height: $size;
+}
+
+mat-icon{
+  &.md-12 {
+    @include md-icon-size(12px);
+  }
+
+  &.md-18 {
+    @include md-icon-size(18px);
+  }
+
+  &.md-32 {
+    @include md-icon-size(32px);
+  }
+
+  &.md-64 {
+    @include md-icon-size(64px);
+  }
+
+  &.md-128 {
+    @include md-icon-size(128px);
+  }
+}
+
+@mixin mat-icon-size($button-size, $icon-size) {
+
+  width: $button-size !important;
+  height: $button-size !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  & > *[role=img] {
+    width: $icon-size;
+    height: $icon-size;
+    font-size: $icon-size;
+
+    svg {
+      width: $icon-size;
+      height: $icon-size;
+    }
+  }
+
+  .mat-mdc-button-touch-target {
+    width: $button-size !important;
+    height: $button-size !important;
+  }
+}
+
+$mat-icon-sizes: (
+  '24': (24px, 16px),
+  '36': (36px, 24px),
+  '72': (72px, 48px),
+);
+
+@each $name, $sizes in $mat-icon-sizes {
+  .mat-icon-size-#{$name} {
+    @include mat-icon-size(nth($sizes, 1), nth($sizes, 2));
+  }
+}

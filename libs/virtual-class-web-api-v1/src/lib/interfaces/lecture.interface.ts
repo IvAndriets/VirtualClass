@@ -1,12 +1,12 @@
 export interface Lecture {
   id: string;
   active: boolean;
+  course: string;
   name: string;
-  owner?: string;
+  owner: string;
   description: string;
-  full_description?: string;
-  lectures?: any[];
-  students?: any[];
   created_at: Date;
-  updated_at: Date;
+  due_date: Date;
+  files: any[]
+  max_grade: number;
 }

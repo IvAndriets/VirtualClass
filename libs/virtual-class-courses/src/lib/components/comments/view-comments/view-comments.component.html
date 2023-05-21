@@ -1,0 +1,7 @@
+<virtual-class-frontend-create-comment [lecture]="lectureId">
+</virtual-class-frontend-create-comment>
+
+<ng-container *ngIf="comments$ | async as comments">
+  <virtual-class-frontend-comments-card-list [comments]="comments">
+  </virtual-class-frontend-comments-card-list>
+</ng-container>
