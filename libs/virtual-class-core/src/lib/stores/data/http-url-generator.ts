@@ -23,8 +23,6 @@ export class ApxApiHttpUrlGenerator extends DefaultHttpUrlGenerator {
 
     let resourceUrls = this.knownHttpResourceUrls[entityName];
 
-    console.error('resourceUrls', resourceUrls);
-
     if (!resourceUrls) {
       const nRoot = normalizeRoot(root);
       const url = `${ nRoot }/${ this.pluralizzer.pluralize(
@@ -36,21 +34,6 @@ export class ApxApiHttpUrlGenerator extends DefaultHttpUrlGenerator {
       };
       this.registerHttpResourceUrls({ [entityName]: resourceUrls });
     }
-
-    // else if(resourceUrls.collectionResourceUrl.includes(':courseId')) {
-    //   // const nRoot = normalizeRoot(root);
-    //   // const url = `${ nRoot }/${ this.pluralizzer.pluralize(
-    //   //   entityName,
-    //   // ) }/`.toLowerCase().replace(':courseId', '6b506bd6-31eb-48b0-b782-47c71619b0b8');
-    //   //
-    //   // console.error('url', url);
-    //   //
-    //   resourceUrls = {
-    //     entityResourceUrl: resourceUrls.entityResourceUrl.replace(':courseId', '6b506bd6-31eb-48b0-b782-47c71619b0b8'),
-    //     collectionResourceUrl: resourceUrls.collectionResourceUrl.replace(':courseId', '6b506bd6-31eb-48b0-b782-47c71619b0b8'),
-    //   };
-    //   this.registerHttpResourceUrls({ [entityName]: resourceUrls });
-    // }
 
     return resourceUrls;
   }

@@ -1,9 +1,10 @@
 <mat-card class="mat-elevation-z2">
 
   <mat-card-header>
-    <mat-card-title>
+    <mat-card-title fxLayout="row">
       <h3>{{course.name}}</h3>
-      {{course.active}}
+
+      <mat-icon [class]="course.active ? 'text-success' : 'text-muted'">noise_control_off</mat-icon>
 
     </mat-card-title>
   </mat-card-header>

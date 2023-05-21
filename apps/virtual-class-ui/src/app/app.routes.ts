@@ -21,10 +21,6 @@ export const appRoutes: Route[] = [
         component: SignInCallBackComponent,
       },
       {
-        path: 'landing',
-        loadChildren: () => import('@virtual-class-frontend/virtual-class-account').then(m => m.VirtualClassAccountModule),
-      },
-      {
         path: 'courses',
         loadChildren: () => import('@virtual-class-frontend/virtual-class-courses').then(m => m.VirtualClassCoursesModule),
       },
