@@ -5,6 +5,12 @@ export const dataServiceConfigFactory = (config: ConfigService): DefaultDataServ
 
   return {
     root: `${config.getEnvironment().api_url}api/`,
+    entityHttpResourceUrls: {
+      Lectures: {
+        entityResourceUrl: `${config.getEnvironment().api_url}api/courses/courseId/lectures/`,
+        collectionResourceUrl: `${config.getEnvironment().api_url}api/courses/courseId/lectures/`,
+      },
+    }
   };
 
 };

@@ -1,4 +1,4 @@
-export interface Course {
+export interface Lecture {
   id: string;
   active: boolean;
   name: string;

@@ -7,7 +7,7 @@ import {
   normalizeRoot,
 } from '@ngrx/data';
 import { Observable, switchMap } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { map, take, tap } from 'rxjs/operators';
 
 import { RouterStateService } from '../states';
 
@@ -33,16 +33,21 @@ export class DataService<T> extends DefaultDataService<T> {
   ): Observable<any> {
 
     return this.adjustReportUrl(url).pipe(
-      switchMap(reportUrlParam => super.execute(method, normalizeRoot(`${url}${reportUrlParam}`), data, options)),
+      switchMap(reportUrlParam => super.execute(method, normalizeRoot(reportUrlParam), data, options)),
     );
 
   }
 
   private adjustReportUrl(url: string): Observable<any> {
-    return this.routerState.getParam$('accountId').pipe(
+    return this.routerState.getParam$('courseId').pipe(
       take(1),
-      map(accountId => {
-        return '';
+      tap(console.error),
+      map(courseId => {
+        if (url.includes('courseId')) {
+          return url.replace('courseId', courseId);
+        }
+
+        return url;
       }),
     );
   }

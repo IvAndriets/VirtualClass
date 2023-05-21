@@ -1,0 +1,40 @@
+<ng-container *ngIf="
+  courses$ | async as course">
+  <h3> {{course.name}}</h3>
+  <div>
+    <b>Owner: </b>  {{course.owner}}
+  </div>
+  <div>
+    <b>Description: </b>  {{course.description}}
+  </div>
+  <div>
+    <b>Full description: </b>  {{course.full_description}}
+  </div>
+
+  <br>
+  <br>
+
+  <div>
+    Lectures       <a mat-button routerLink="lectures/new">Add Lectures</a>
+
+
+
+    <div *ngFor="let lecture of course.lectures">
+      <a [routerLink]="'lectures/'+lecture.id" >
+        {{lecture.name}}
+      </a>
+      <mat-divider></mat-divider>
+
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div>
+    Students
+  </div>
+</ng-container>
+
+
+

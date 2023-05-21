@@ -15,8 +15,9 @@ import {
   Pluralizer,
 } from '@ngrx/data';
 import { VirtualClassSharedUiModule } from '@virtual-class-frontend/virtual-class-shared-ui';
-import { CoursesCardComponent } from './components/courses-card/courses-card.component';
-import { CoursesCardListComponent } from './components/courses-card-list/courses-card-list.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
+import { CreateLectureComponent } from './components/lectures/create-lecture/create-lecture.component';
+import { ViewLectureComponent } from './components/lectures/view-lecture/view-lecture.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,12 @@ import { CoursesCardListComponent } from './components/courses-card-list/courses
     VirtualClassStoreModule,
     VirtualClassSharedUiModule,
   ],
-  declarations: [...components, CoursesCardComponent, CoursesCardListComponent],
+  declarations: [
+    ...components,
+    CreatePostComponent,
+    CreateLectureComponent,
+    ViewLectureComponent,
+  ],
 })
 export class VirtualClassCoursesModule {
   constructor(
