@@ -64,10 +64,10 @@ export class AppEffects {
 
             return [
               ...actions,
-              UserActions.setUser({ userId: user.sub, roles: user['realm_access'].roles }),
+              UserActions.setUser({ userId: user.sub, roles: user['resource_access']['virtual-class'].roles }),
               // AccountActions.addAccounts({ accounts }),
               UserActions.addUser({ user }),
-              AppActions.bootSuccess({ user, roles: user['realm_access'].roles, accounts: [] }),
+              AppActions.bootSuccess({ user, roles: user['resource_access']['virtual-class'].roles, accounts: [] }),
             ];
 
           }),

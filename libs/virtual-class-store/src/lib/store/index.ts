@@ -10,10 +10,14 @@ export const entityMetadataMap: EntityMetadataMap = {
   Comments: {
     selectId: c => c.id,
   },
+  Links: {
+    selectId: c => c.id,
+  },
 };
 
 export const pluralNames: EntityPluralNames = {
   Courses: 'courses',
   Lectures: 'lectures',
   Comments: 'comments',
+  Links: 'links',
 };

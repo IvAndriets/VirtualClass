@@ -2,7 +2,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { map, Observable } from "rxjs";
 import { Pagination, RouterStateService, Status } from "@virtual-class-frontend/virtual-class-core";
 import { CoursesService } from "@virtual-class-frontend/virtual-class-store";
-import { Course } from "@virtual-class-frontend/virtual-class-web-api-v1";
+import { Course, UserStateService } from "@virtual-class-frontend/virtual-class-web-api-v1";
+import { Store } from "@ngrx/store";
+import { AuthService } from "@virtual-class-frontend/virtual-class-auth";
 
 @Component({
   selector: 'virtual-class-frontend-courses-list',
@@ -18,17 +20,19 @@ export class CoursesListComponent implements OnInit {
 
   search$!: Observable<string | null>;
   coursesList$!: Observable<Course[]>;
-  // status$: Observable<Status>;
+  userRole$!: Observable<string[] | null>;
 
   constructor(
     private readonly coursesService: CoursesService,
     private readonly routerState: RouterStateService,
+    private readonly userService: UserStateService,
   ){
   }
 
   ngOnInit(): void {
     this.coursesService.getWithQuery({});
     this.coursesList$ = this.coursesService.entities$;
+    this.userRole$ = this.userService.getRoles$();
     // this.status$ = this.coursesService.status$;
     //
     // this.pagination$ = this.getPagination();

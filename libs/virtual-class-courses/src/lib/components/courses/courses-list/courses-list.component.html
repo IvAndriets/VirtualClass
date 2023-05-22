@@ -1,4 +1,4 @@
-<virtual-class-frontend-shared-page>
+<virtual-class-frontend-shared-page *ngIf="userRole$ | async as userRole">
 
   <ng-container title>
     <div fxLayout="row"
@@ -11,7 +11,8 @@
 
   <ng-container action>
 
-    <div fxLayout="row"
+    <div *ngIf="userRole?.includes('Teacher')"
+         fxLayout="row"
          fxLayoutAlign="end center"
          fxLayoutGap="24px">
 

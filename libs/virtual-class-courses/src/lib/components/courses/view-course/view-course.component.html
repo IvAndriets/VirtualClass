@@ -1,11 +1,23 @@
-<virtual-class-frontend-shared-page *ngIf="courses$ | async as course">
+<virtual-class-frontend-shared-page *ngIf="course$ | async as course">
 
   <ng-container title>
     <h2 class="mb-0">{{course.name}}</h2>
   </ng-container>
 
   <ng-container body>
-    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end">
+
+    <div>
+      <div *ngIf="links$ | async as links">
+        <div *ngFor="let link of links">
+          {{'http://localhost:8000/join/'+ link.id}}
+        </div>
+      </div>
+
+
+    </div>
+
+    <mat-tab-group *ngIf="userRole$ | async as userRole"
+                   mat-stretch-tabs="false" mat-align-tabs="end">
       <mat-tab label="Board">
         <div class="p-4">
           <div fxLayout="row"
@@ -15,7 +27,11 @@
 
             <h3 class="mb-0">Lectures</h3>
 
-            <a mat-raised-button routerLink="lectures/new">Add Lecture</a>
+            <a *ngIf="userRole?.includes('Teacher')"
+               mat-raised-button
+               routerLink="lectures/new">
+              Add Lecture
+            </a>
 
           </div>
 
@@ -34,7 +50,8 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="Statistic">
+      <mat-tab *ngIf="userRole?.includes('Teacher')"
+               label="Statistic">
         Students
       </mat-tab>
     </mat-tab-group>

@@ -4,12 +4,15 @@
     <div fxLayout="row"
          fxLayoutAlign="start center">
       <h2 class="mb-0"
-          data-test-id="title">{{lecture.name}}</h2>
+          data-test-id="title">
+        {{lecture.name}}
+        <span *ngIf="lecture.type === 'lab'">lab</span>
+      </h2>
     </div>
   </ng-container>
 
   <ng-container action>
-    <ng-container *ngIf="true">
+    <ng-container *ngIf="lecture.type === 'lab'">
       <a mat-raised-button routerLink="homeworks">Students work</a>
     </ng-container>
   </ng-container>
