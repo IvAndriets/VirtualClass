@@ -17,6 +17,9 @@ import {
 import { VirtualClassSharedUiModule } from '@virtual-class-frontend/virtual-class-shared-ui';
 import { LectureCardComponent } from './components/lectures/lecture-card/lecture-card.component';
 import { EditCourseComponent } from './components/courses/edit-course/edit-course.component';
+import { HomeworksListComponent } from './components/homeworks/homeworks-list/homeworks-list.component';
+import { HomeworksViewComponent } from './components/homeworks/homeworks-view/homeworks-view.component';
+import { HomeworksCardComponent } from './components/homeworks/homeworks-card/homeworks-card.component';
 
 @NgModule({
   imports: [
@@ -32,6 +35,9 @@ import { EditCourseComponent } from './components/courses/edit-course/edit-cours
     LectureCardComponent,
     EditCourseComponent,
     EditCourseComponent,
+    HomeworksListComponent,
+    HomeworksViewComponent,
+    HomeworksCardComponent,
   ],
 })
 export class VirtualClassCoursesModule {

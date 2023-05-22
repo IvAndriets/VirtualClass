@@ -29,3 +29,12 @@ a {
 .yyy * {
   outline: 1px solid red;
 }
+
+
+.mat-badge-small .mat-badge-content {
+  width: auto;
+  border-radius: 0;
+  left: -4px !important;
+  top: -4px !important;
+
+}

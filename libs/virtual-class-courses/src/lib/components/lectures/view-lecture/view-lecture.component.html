@@ -8,21 +8,57 @@
     </div>
   </ng-container>
 
+  <ng-container action>
+    <ng-container *ngIf="true">
+      <a mat-raised-button routerLink="homeworks">Students work</a>
+    </ng-container>
+  </ng-container>
+
   <ng-container body>
 
-    <div class="mb-24">
-      {{lecture.description}}
+    <div fxLayout="row"
+         fxLayoutAlign="space-between center"
+         class="mb-24">
+      <div fxFlex="70">
+        <div class="mb-24">
+          {{lecture.description}}
+        </div>
+
+        <div class="mb-24">
+          <div class="text-muted">
+            Owner: {{lecture.owner}}
+          </div>
+          <span class="text-muted">
+            Created at date: {{lecture.created_at | date: 'dd/MM/yyyy, hh:mm'}}
+            Due date: {{lecture.due_date | date: 'dd/MM/yyyy, hh:mm'}}
+          </span>
+        </div>
+
+      </div>
+      <div fxFlex="30">
+        <mat-card>
+          <mat-card-content>
+            <div>
+              <input #fileInput
+                     fxHide
+                     type="file"
+                     multiple
+                     accept=".docx, .xlsx, .csv, .pdf, .pptx, .jpg, img, .png"
+                     (change)="uploadSelectedFiles($event)">
+              <button mat-flat-button
+                      color="primary"
+                      (click)="fileInput.click()">
+                Upload Files
+              </button>
+            </div>
+            <h4>Files</h4>
+            <div></div>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
 
-    <div class="mb-24">
-      <div class="test-muted">
-        Owner: {{lecture.owner}}
-      </div>
-      <span class="test-muted">
-        Created at date: {{lecture.created_at | date: 'dd/MM/yyyy, hh:mm'}}
-        Due date: {{lecture.due_date | date: 'dd/MM/yyyy, hh:mm'}}
-      </span>
-    </div>
+    <mat-divider class="mb-24"></mat-divider>
 
     <virtual-class-frontend-view-comments [lectureId]="lecture.id">
     </virtual-class-frontend-view-comments>

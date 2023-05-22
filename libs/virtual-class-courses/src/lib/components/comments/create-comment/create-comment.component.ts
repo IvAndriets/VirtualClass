@@ -24,10 +24,7 @@ export class CreateCommentComponent  implements OnInit {
   }
 
   onSubmit() {
-    console.error('onSubmit');
     if (this.form.valid) {
-      console.error('this.form.value');
-
       this.commentsService.add({...this.form.value, lecture: this.lecture});
     } else {
       console.error('not valid')

@@ -9,4 +9,5 @@ export interface Lecture {
   due_date: Date;
   files: any[]
   max_grade: number;
+  type: 'lab' | 'lecture'
 }
