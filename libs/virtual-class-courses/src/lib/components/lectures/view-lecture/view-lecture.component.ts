@@ -16,6 +16,8 @@ import { LecturesService } from "@virtual-class-frontend/virtual-class-store";
 export class ViewLectureComponent  implements OnInit{
   lecture$!: Observable<Lecture>;
   userRole$!: Observable<string[] | null>;
+  courseId: string = '';
+  lectureId: string = '';
 
   constructor(
     private readonly lecturesService: LecturesService,
@@ -32,7 +34,11 @@ export class ViewLectureComponent  implements OnInit{
       distinctUntilChanged(),
       filter(({courseId, lectureId}) => !!courseId && !!lectureId),
       switchMap(({courseId, lectureId}) => this.lecturesService.getByKey(lectureId)),
-      tap(i => console.error('this.lecturesService.', i)),
+      tap(i => {
+        console.error('this.lecturesService.', i);
+        this.lectureId = i.id;
+        this.courseId = i.course;
+      }),
     );
   }
 
@@ -41,11 +47,11 @@ export class ViewLectureComponent  implements OnInit{
     if (event.target.files.length > 0) {
       const formData = new FormData();
       formData.append('file', event.target.files[0]);
-      formData.append('course_id', '2a7956cb-d26d-4852-a19c-d344ad9515ff');
-      formData.append('lecture_id', 'f11af1ac-2212-4e6f-ba51-a186723737d2');
+      formData.append('course_id', this.courseId);
+      formData.append('lecture_id', this.lectureId);
       formData.append('description', 'deckr');
 
-      this.client.uploadFiles('2a7956cb-d26d-4852-a19c-d344ad9515ff', 'f11af1ac-2212-4e6f-ba51-a186723737d2', formData)
+      this.client.uploadFiles(this.courseId, this.lectureId, formData)
         .subscribe(i => console.log('i'));
     }
 

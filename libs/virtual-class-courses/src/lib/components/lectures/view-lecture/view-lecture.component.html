@@ -58,7 +58,9 @@
               </button>
             </div>
             <h4>Files</h4>
-            <div></div>
+            <div *ngFor="let file of lecture.files">
+              <a href="{{file.url}}">{{file.file_name}}</a>
+            </div>
           </mat-card-content>
         </mat-card>
       </div>
