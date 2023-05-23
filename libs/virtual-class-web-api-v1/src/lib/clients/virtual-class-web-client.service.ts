@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { ConfigService } from "@virtual-class-frontend/virtual-class-config";
 import { ClientBaseService, ClientOptions } from "@virtual-class-frontend/virtual-class-core";
 
@@ -46,5 +45,16 @@ export class VirtualClassWebClientService extends ClientBaseService {
     };
 
     return this.post(`api/courses/${courseId}/lectures/${lectureId}/upload-file/`, formData, options);
+  }
+
+  submitHomework( formData: any, options: ClientOptions = {}): Observable<any[]> {
+    const _options = {
+      ...options,
+      params: {
+        ...options.params,
+      },
+    };
+
+    return this.post(`api/homework/`, formData, options);
   }
 }
