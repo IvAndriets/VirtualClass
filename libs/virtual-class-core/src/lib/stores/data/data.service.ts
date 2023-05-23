@@ -42,15 +42,17 @@ export class DataService<T> extends DefaultDataService<T> {
     return this.routerState.getParam$('courseId').pipe(
       take(1),
       map(courseId => {
-        if (url.includes('courseId')) {
-          return url.replace('courseId', courseId);
+        let currentUrl = url;
+
+        if (currentUrl.includes('course_id')) {
+          currentUrl = currentUrl.replace('course_id', courseId);
         }
 
-        if (!url.endsWith('/')) {
-          return url+'/';
+        if (!currentUrl.endsWith('/')) {
+          currentUrl = currentUrl+'/';
         }
 
-        return url;
+        return currentUrl;
       }),
     );
   }

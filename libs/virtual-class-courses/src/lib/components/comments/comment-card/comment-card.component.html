@@ -1,30 +1,33 @@
-<div fxLayout="row wrap"
-     fxLayoutAlign="end start">
-  <div fxFill
-       fxLayout="row"
-       fxLayoutAlign="end end"
-       class="text-muted mb-8">
-  <span>
+<ng-container *ngIf="user$ | async as user">
+  <div fxLayout="row wrap"
+       [fxLayoutAlign]="user.getEmail() === comment.owner ? 'end start' : 'start start'">
+    <div fxFill
+         fxLayout="row"
+         [fxLayoutAlign]="user.getEmail() === comment.owner ? 'end end' : 'start start'"
+         class="text-muted mb-8">
+      <span>
     <b>{{comment.owner}}</b>
     {{comment.created_at | date: 'dd/MM/yyyy, hh:mm' }}
   </span>
 
-  <button mat-icon-button
-          color="warn"
-          aria-label="delete"
-          class="mat-icon-size-24"
-          (click)="onDelete(comment.id)">
-    <mat-icon>delete</mat-icon>
-  </button>
+      <button *ngIf="(userRole$ | async)?.includes('Teacher')"
+              mat-icon-button
+              color="warn"
+              aria-label="delete"
+              class="mat-icon-size-24"
+              (click)="onDelete(comment.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
 
+    </div>
+    <div fxLayout="row"
+         fxLayoutAlign="end start">
+      <mat-card class="mat-elevation-z2">
+        <mat-card-content>
+          {{comment.comment}}
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
-  <div fxLayout="row"
-       fxLayoutAlign="end start">
-    <mat-card class="mat-elevation-z2">
-      <mat-card-content>
-        {{comment.comment}}
-      </mat-card-content>
-    </mat-card>
-  </div>
-</div>
+</ng-container>
 
