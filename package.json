@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "start": "nx serve virtual-class-ui"
+    "start": "nx serve virtual-class-ui",
+    "buils": "nx build virtual-class-ui --prod"
   },
   "private": true,
   "dependencies": {
