@@ -21,6 +21,7 @@ import { HomeworksListComponent } from './components/homeworks/homeworks-list/ho
 import { HomeworksViewComponent } from './components/homeworks/homeworks-view/homeworks-view.component';
 import { HomeworksCardComponent } from './components/homeworks/homeworks-card/homeworks-card.component';
 import { StudentCardComponent } from './components/courses/student-card/student-card.component';
+import { LinksListComponent } from './components/links/links-list/links-list.component';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { StudentCardComponent } from './components/courses/student-card/student-
     HomeworksViewComponent,
     HomeworksCardComponent,
     StudentCardComponent,
+    LinksListComponent,
   ],
 })
 export class VirtualClassCoursesModule {

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CoursesService, LinksService } from "@virtual-class-frontend/virtual-class-store";
 import { RouterStateService } from "@virtual-class-frontend/virtual-class-core";
 import { distinctUntilChanged, filter, Observable, switchMap, tap } from "rxjs";
-import { Course, Link, UserStateService } from "@virtual-class-frontend/virtual-class-web-api-v1";
+import { Course, UserStateService } from "@virtual-class-frontend/virtual-class-web-api-v1";
 
 @Component({
   selector: 'virtual-class-frontend-view-course',
@@ -12,7 +12,6 @@ import { Course, Link, UserStateService } from "@virtual-class-frontend/virtual-
 })
 export class ViewCourseComponent implements OnInit{
   course$!: Observable<Course>;
-  links$!: Observable<Link[]>;
   userRole$!: Observable<string[] | null>;
 
   constructor(
@@ -26,11 +25,9 @@ export class ViewCourseComponent implements OnInit{
     this.course$ = this.routerState.getParam$('courseId').pipe(
       distinctUntilChanged(),
       filter(courseId => !!courseId),
-      tap(courseId => this.linksService.loadWithQuery({ course_id: courseId })),
       switchMap(courseId => this.coursesService.getByKey(courseId)),
     );
 
-    this.links$ = this.linksService.entities$;
     this.userRole$ = this.userService.getRoles$();
   }
 }

@@ -6,16 +6,6 @@
 
   <ng-container body>
 
-    <div>
-      <div *ngIf="links$ | async as links">
-        <div *ngFor="let link of links">
-          {{'http://localhost:8000/join/'+ link.id}}
-        </div>
-      </div>
-
-
-    </div>
-
     <mat-tab-group *ngIf="userRole$ | async as userRole"
                    mat-stretch-tabs="false" mat-align-tabs="end">
       <mat-tab label="Board">
@@ -45,8 +35,18 @@
 
       <mat-tab label="About">
         <div class="p-4">
-          <virtual-class-frontend-edit-course [course]="course">
-          </virtual-class-frontend-edit-course>
+          <div fxLayout="row"
+               fxLayoutAlign="space-between center"
+               fxLayoutGap="24px">
+            <virtual-class-frontend-edit-course fxFlex="70"
+                                                [course]="course">
+            </virtual-class-frontend-edit-course>
+
+            <virtual-class-frontend-links-list *ngIf="userRole?.includes('Teacher')"
+                                               fxFlex="30"
+                                               [courseId]="course.id">
+            </virtual-class-frontend-links-list>
+          </div>
         </div>
       </mat-tab>
 

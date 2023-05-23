@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content>
+
+    <div>
+      <div *ngIf="links$ | async as links">
+        <div *ngFor="let link of links"
+             class="mb-8">
+
+          <mat-form-field >
+            <input [(ngModel)]="'http://localhost:8000/join/'+ link.id"
+                   matInput
+                   readonly>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div>
+        <button mat-flat-button
+                color="primary"
+                (click)="onAdd()">
+          Create link
+        </button>
+      </div>
+
+
+    </div>
+
+  </mat-card-content>
+</mat-card>
