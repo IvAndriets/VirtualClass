@@ -9,7 +9,7 @@
     <mat-tab-group *ngIf="userRole$ | async as userRole"
                    mat-stretch-tabs="false" mat-align-tabs="end">
       <mat-tab label="Board">
-        <div class="p-4">
+        <div class="mt-16 p-4">
           <div fxLayout="row"
                fxLayoutAlign="space-between center"
                fxLayoutGap="24px"
@@ -34,9 +34,9 @@
       </mat-tab>
 
       <mat-tab label="About">
-        <div class="p-4">
+        <div class="mt-16 p-4">
           <div fxLayout="row"
-               fxLayoutAlign="space-between center"
+               fxLayoutAlign="space-between start"
                fxLayoutGap="24px">
             <virtual-class-frontend-edit-course fxFlex="70"
                                                 [course]="course">
@@ -52,7 +52,8 @@
 
       <mat-tab *ngIf="userRole?.includes('Teacher')"
                label="Statistic">
-        <div *ngFor="let student of course.students">
+        <div *ngFor="let student of course.students"
+             class="mt-16 p-4">
           <virtual-class-frontend-student-card [student]="student">
           </virtual-class-frontend-student-card>
         </div>
