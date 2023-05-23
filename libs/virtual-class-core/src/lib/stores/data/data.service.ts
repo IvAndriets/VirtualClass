@@ -41,10 +41,13 @@ export class DataService<T> extends DefaultDataService<T> {
   private adjustReportUrl(url: string): Observable<any> {
     return this.routerState.getParam$('courseId').pipe(
       take(1),
-      tap(console.error),
       map(courseId => {
         if (url.includes('courseId')) {
           return url.replace('courseId', courseId);
+        }
+
+        if (!url.endsWith('/')) {
+          return url+'/';
         }
 
         return url;

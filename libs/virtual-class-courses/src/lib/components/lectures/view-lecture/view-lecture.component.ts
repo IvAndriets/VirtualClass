@@ -35,7 +35,6 @@ export class ViewLectureComponent  implements OnInit{
       filter(({courseId, lectureId}) => !!courseId && !!lectureId),
       switchMap(({courseId, lectureId}) => this.lecturesService.getByKey(lectureId)),
       tap(i => {
-        console.error('this.lecturesService.', i);
         this.lectureId = i.id;
         this.courseId = i.course;
       }),
@@ -55,5 +54,17 @@ export class ViewLectureComponent  implements OnInit{
         .subscribe(i => console.log('i'));
     }
 
+  }
+
+  onSubmit(event: any) {
+    if (event.target.files.length > 0) {
+      const formData = new FormData();
+      formData.append('file', event.target.files[0]);
+      formData.append('lecture_id', 'f11af1ac-2212-4e6f-ba51-a186723737d2');
+      formData.append('description', 'deckr');
+
+      this.client.submitHomework(formData)
+        .subscribe(i => console.log('i'));
+    }
   }
 }

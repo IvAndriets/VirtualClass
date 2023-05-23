@@ -16,7 +16,17 @@
       <a mat-raised-button routerLink="homeworks">Students work</a>
     </ng-container>
     <ng-container *ngIf="userRole?.includes('Student')">
-      <a mat-raised-button>Submit homework</a>
+      <input #homeWorkInput
+             fxHide
+             type="file"
+             multiple
+             accept=".docx, .xlsx, .csv, .pdf, .pptx, .jpg, img, .png"
+             (change)="onSubmit($event)">
+      <button mat-flat-button
+              color="primary"
+              (click)="homeWorkInput.click()">
+        Submit homework
+      </button>
     </ng-container>
   </ng-container>
 
