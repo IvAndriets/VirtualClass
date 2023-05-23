@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { distinctUntilChanged, filter, Observable, switchMap, tap } from "rxjs";
-import { Lecture, VirtualClassWebClientService } from "@virtual-class-frontend/virtual-class-web-api-v1";
+import {
+  Lecture,
+  UserStateService,
+  VirtualClassWebClientService
+} from "@virtual-class-frontend/virtual-class-web-api-v1";
 import { RouterStateService } from "@virtual-class-frontend/virtual-class-core";
 import { LecturesService } from "@virtual-class-frontend/virtual-class-store";
 
@@ -17,10 +21,13 @@ export class ViewLectureComponent  implements OnInit{
     private readonly lecturesService: LecturesService,
     private readonly routerState: RouterStateService,
     private readonly client: VirtualClassWebClientService,
+    private readonly userService: UserStateService,
   ) {
   }
 
   ngOnInit(): void {
+    this.userRole$ = this.userService.getRoles$();
+
     this.lecture$ = this.routerState.getParams$().pipe(
       distinctUntilChanged(),
       filter(({courseId, lectureId}) => !!courseId && !!lectureId),
