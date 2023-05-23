@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { CommentsService } from "@virtual-class-frontend/virtual-class-store";
+import { first, tap } from "rxjs";
 
 @Component({
   selector: 'virtual-class-frontend-create-comment',
@@ -25,7 +26,14 @@ export class CreateCommentComponent  implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.commentsService.add({...this.form.value, lecture: this.lecture});
+      this.commentsService.add({...this.form.value, lecture: this.lecture})
+        .pipe(
+          first(),
+          tap(() => {
+            this.form.get('comment')?.setValue('');
+          })
+        )
+        .subscribe();
     } else {
       console.error('not valid')
     }
