@@ -1,21 +1,31 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Links</mat-card-title>
+    <mat-card-title>
+      <h2 class="mt-0">Links</h2>
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
       <div *ngIf="links$ | async as links">
-        <div *ngFor="let link of links"
-             class="mb-8">
-
-          <mat-form-field >
-            <input [(ngModel)]="'http://localhost:8000/join/'+ link.id"
-                   matInput
-                   readonly>
-          </mat-form-field>
+        <div *ngFor="let link of links">
+          <div fxLayout="row"
+               fxLayoutAlign="space-between start"
+               fxLayoutGap="0">
+            <mat-form-field class="mb-0">
+              <input [(ngModel)]="'http://localhost:8000/join/'+ link.id"
+                     [disabled]="!link?.active"
+                     matInput
+                     readonly>
+            </mat-form-field>
+            <button mat-icon-button
+                    color="warn"
+                    (click)="onDelete(link.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
         </div>
       </div>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions class="mx-12 mb-16">
     <button mat-flat-button
             color="primary"
             (click)="onAdd()">

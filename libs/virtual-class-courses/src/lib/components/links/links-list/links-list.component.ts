@@ -30,6 +30,9 @@ export class LinksListComponent implements OnInit{
     }
 
     this.linksService.add(param as any);
+  }
 
+  onDelete(id: string) {
+    this.linksService.delete(id);
   }
 }

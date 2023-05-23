@@ -1,5 +1,6 @@
 export interface Link {
   id: string,
+  active: boolean,
   use_access_code: boolean,
   access_code: string,
   course_id: string,
