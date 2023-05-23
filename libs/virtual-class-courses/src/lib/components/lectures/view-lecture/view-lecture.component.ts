@@ -11,6 +11,7 @@ import { LecturesService } from "@virtual-class-frontend/virtual-class-store";
 })
 export class ViewLectureComponent  implements OnInit{
   lecture$!: Observable<Lecture>;
+  userRole$!: Observable<string[] | null>;
 
   constructor(
     private readonly lecturesService: LecturesService,

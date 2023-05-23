@@ -33,7 +33,7 @@ export class DataService<T> extends DefaultDataService<T> {
   ): Observable<any> {
 
     return this.adjustReportUrl(url).pipe(
-      switchMap(reportUrlParam => super.execute(method, normalizeRoot(reportUrlParam), data, options)),
+      switchMap(reportUrlParam => super.execute(method, reportUrlParam, data, options)),
     );
 
   }
