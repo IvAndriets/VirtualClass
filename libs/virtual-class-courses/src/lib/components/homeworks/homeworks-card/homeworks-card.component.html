@@ -1,1 +1,30 @@
-<p>homeworks-card works!</p>
+<mat-card class="mat-elevation-z2">
+
+  <mat-card-header fxLayout="column">
+    <mat-card-title fxLayout="row"
+                    fxLayoutAlign="space-between center"
+                    class="w-100">
+      <h3 class="m-0">{{homework.owner}}</h3>
+
+<!--      <mat-icon [class]="course.active ? 'text-success' : 'text-muted'">noise_control_off</mat-icon>-->
+
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="pt-12">
+
+    <div class="mb-12">
+      <a [href]="homework.file.url">{{homework.file.file_name}}</a>
+    </div>
+
+    <div class="mb-12">
+      {{homework.mark}}
+    </div>
+
+    <div class="mb-12">
+      {{homework.teacher_comment}}
+    </div>
+  </mat-card-content>
+
+
+</mat-card>

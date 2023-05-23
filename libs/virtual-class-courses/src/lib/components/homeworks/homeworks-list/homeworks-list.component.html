@@ -1,5 +1,17 @@
-<div *ngFor="let homework of homeworks$ | async">
-<!--  <div (click)="onGrate(homework.id)">-->
-    {{homework | json }}
-<!--  </div>-->
-</div>
+<virtual-class-frontend-shared-page>
+  <ng-container title>
+    <div fxLayout="row"
+         fxLayoutAlign="start center">
+      <h2 class="mb-0"
+          data-test-id="title">
+        Homework
+      </h2>
+    </div>
+  </ng-container>
+  <ng-container body>
+    <div *ngFor="let homework of homeworks$ | async" class>
+      <virtual-class-frontend-homeworks-card [homework]="homework">
+      </virtual-class-frontend-homeworks-card>
+    </div>
+  </ng-container>
+</virtual-class-frontend-shared-page>

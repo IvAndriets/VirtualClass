@@ -4,9 +4,9 @@ export interface Homework {
   mark: number,
   file: {
     // "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    // "url": "string",
+    url: string,
     // "file_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    // "file_name": "string",
+    file_name: string,
     // "description": "string",
     // "owner": "user@example.com",
     // "created_at": "2023-05-23T19:10:51.202Z",
