@@ -52,7 +52,10 @@
 
       <mat-tab *ngIf="userRole?.includes('Teacher')"
                label="Statistic">
-        Students
+        <div *ngFor="let student of course.students">
+          <virtual-class-frontend-student-card [student]="student">
+          </virtual-class-frontend-student-card>
+        </div>
       </mat-tab>
     </mat-tab-group>
   </ng-container>

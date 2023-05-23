@@ -20,6 +20,7 @@ import { EditCourseComponent } from './components/courses/edit-course/edit-cours
 import { HomeworksListComponent } from './components/homeworks/homeworks-list/homeworks-list.component';
 import { HomeworksViewComponent } from './components/homeworks/homeworks-view/homeworks-view.component';
 import { HomeworksCardComponent } from './components/homeworks/homeworks-card/homeworks-card.component';
+import { StudentCardComponent } from './components/courses/student-card/student-card.component';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { HomeworksCardComponent } from './components/homeworks/homeworks-card/ho
     HomeworksListComponent,
     HomeworksViewComponent,
     HomeworksCardComponent,
+    StudentCardComponent,
   ],
 })
 export class VirtualClassCoursesModule {
