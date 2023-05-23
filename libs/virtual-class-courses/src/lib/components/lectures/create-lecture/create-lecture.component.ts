@@ -24,15 +24,17 @@ export class CreateLectureComponent implements OnInit {
       description: ['', [Validators.required]],
       type: ['lecture', [Validators.required]],
       max_grade: 0,
-      "due_date": "2023-05-21T14:21:36.540Z"
+      due_date: null,
     });
+  }
+
+  isLab(): boolean {
+    return this.form.get('type')?.value === 'lab';
   }
 
   onSubmit() {
     console.error('onSubmit');
     if (this.form.valid) {
-      console.error('this.form.value');
-
       this.lecturesService.add(this.form.value);
     } else {
       console.error('not valid')

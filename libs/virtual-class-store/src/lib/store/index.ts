@@ -13,6 +13,9 @@ export const entityMetadataMap: EntityMetadataMap = {
   Links: {
     selectId: c => c.id,
   },
+  Homeworks: {
+    selectId: c => c.id,
+  },
 };
 
 export const pluralNames: EntityPluralNames = {
@@ -20,4 +23,6 @@ export const pluralNames: EntityPluralNames = {
   Lectures: 'courses/course_id/lectures',
   Comments: 'comments',
   Links: 'links',
+  Homeworks: 'homeworks',
+  RateLab: 'homeworks/homeworks_id/rate_lab',
 };

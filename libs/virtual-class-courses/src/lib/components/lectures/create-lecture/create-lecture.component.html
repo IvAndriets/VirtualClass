@@ -40,16 +40,30 @@
         </mat-radio-group>
       </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Max grade</mat-label>
-        <input matInput
-               placeholder="max grade"
-               type="number"
-               formControlName="max_grade">
-        <mat-error>
-          Required
-        </mat-error>
-      </mat-form-field>
+      <div *ngIf="true">
+        <mat-form-field appearance="outline">
+          <mat-label>Max grade</mat-label>
+          <input matInput
+                 placeholder="max grade"
+                 type="number"
+                 formControlName="max_grade">
+          <mat-error>
+            Required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+                        class="mb-24">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix
+                                 [for]="picker"
+                                 formControlName="due_date">
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
 
       <button mat-flat-button
               type="submit"

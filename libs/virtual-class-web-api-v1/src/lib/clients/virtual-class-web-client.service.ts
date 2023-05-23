@@ -55,6 +55,6 @@ export class VirtualClassWebClientService extends ClientBaseService {
       },
     };
 
-    return this.post(`api/homework/`, formData, options);
+    return this.post(`api/homeworks/`, formData, options);
   }
 }
