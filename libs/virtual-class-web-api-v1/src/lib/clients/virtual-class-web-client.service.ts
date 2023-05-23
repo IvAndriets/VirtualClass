@@ -45,6 +45,6 @@ export class VirtualClassWebClientService extends ClientBaseService {
       },
     };
 
-    return this.post(`api/courses/${courseId}/lectures/${lectureId}/upload-file`, formData, options);
+    return this.post(`api/courses/${courseId}/lectures/${lectureId}/upload-file/`, formData, options);
   }
 }
