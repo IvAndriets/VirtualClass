@@ -30,7 +30,7 @@ export class CreateCommentComponent  implements OnInit {
         .pipe(
           first(),
           tap(() => {
-            this.form.get('comment')?.setValue('');
+            this.form.get('comment')?.reset();
           })
         )
         .subscribe();

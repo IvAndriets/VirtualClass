@@ -32,7 +32,6 @@ export class ViewLectureComponent  implements OnInit{
       distinctUntilChanged(),
       filter(({courseId, lectureId}) => !!courseId && !!lectureId),
       switchMap(({courseId, lectureId}) => this.lecturesService.getByKey(lectureId)),
-      tap(i => console.error('this.lecturesService.', i)),
     );
   }
 

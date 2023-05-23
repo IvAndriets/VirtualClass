@@ -17,7 +17,7 @@ export const entityMetadataMap: EntityMetadataMap = {
 
 export const pluralNames: EntityPluralNames = {
   Courses: 'courses',
-  Lectures: 'lectures',
+  Lectures: 'courses/courseId/lectures',
   Comments: 'comments',
   Links: 'links',
 };
