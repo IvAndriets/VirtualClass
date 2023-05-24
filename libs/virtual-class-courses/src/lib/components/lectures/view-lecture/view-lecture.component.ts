@@ -55,16 +55,4 @@ export class ViewLectureComponent  implements OnInit{
     }
 
   }
-
-  onSubmit(event: any) {
-    if (event.target.files.length > 0) {
-      const formData = new FormData();
-      formData.append('file', event.target.files[0]);
-      formData.append('lecture_id', 'f11af1ac-2212-4e6f-ba51-a186723737d2');
-      formData.append('description', 'deckr');
-
-      this.client.submitHomework(formData)
-        .subscribe(i => console.log('i'));
-    }
-  }
 }

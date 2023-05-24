@@ -1,4 +1,26 @@
-<mat-card *ngIf="homeworks$ | async as homeworks" class="mb-24">
+<mat-card *ngIf="homeworks$ | async as homeworks"
+          class="mb-24">
+  <mat-card-header fxLayout="column">
+    <mat-card-title fxLayout="row"
+                    fxLayoutAlign="space-between center"
+                    class="w-100 mb-16">
+      <h3 class="m-0">Homework</h3>
+      <div>
+        <input #homeWorkInput
+               fxHide
+               type="file"
+               multiple
+               accept=".docx, .xlsx, .csv, .pdf, .pptx, .jpg, img, .png"
+               (change)="onSubmit($event)">
+        <button mat-flat-button
+                color="primary"
+                (click)="homeWorkInput.click()">
+          Submit homework
+        </button>
+      </div>
+
+    </mat-card-title>
+  </mat-card-header>
   <mat-card-content>
     <div *ngFor="let homework of homeworks">
       <div class="mb-16">Mark: <span>{{homework.mark}}</span></div>

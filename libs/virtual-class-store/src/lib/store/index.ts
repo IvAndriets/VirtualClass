@@ -24,5 +24,4 @@ export const pluralNames: EntityPluralNames = {
   Comments: 'comments',
   Links: 'links',
   Homeworks: 'homeworks',
-  RateLab: 'homeworks/homeworks_id/rate_lab',
 };

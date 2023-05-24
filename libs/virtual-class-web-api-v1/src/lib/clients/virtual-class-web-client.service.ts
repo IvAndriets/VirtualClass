@@ -57,4 +57,15 @@ export class VirtualClassWebClientService extends ClientBaseService {
 
     return this.post(`api/homeworks/`, formData, options);
   }
+
+  rateHomework( id: string, formData: any, options: ClientOptions = {}): Observable<any[]> {
+    const _options = {
+      ...options,
+      params: {
+        ...options.params,
+      },
+    };
+
+    return this.post(`api/homeworks/${id}/rate_lab`, formData, options);
+  }
 }

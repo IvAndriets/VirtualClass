@@ -13,17 +13,57 @@
 
   <mat-card-content class="pt-12">
 
-    <div class="mb-12">
-      <a [href]="homework.file.url">{{homework.file.file_name}}</a>
+    <div fxLayout="row"
+         fxLayoutAlign="space-between stop">
+      <div>
+        <div class="mb-12">
+          <a [href]="homework.file.url">{{homework.file.file_name}}</a>
+        </div>
+
+        <div class="mb-12">
+          {{homework.mark}}
+        </div>
+
+        <div class="mb-12">
+          {{homework.teacher_comment}}
+        </div>
+      </div>
+      <div fxFlex="30">
+        <form *ngIf="form"
+              [formGroup]="form"
+              fxLayout="row"
+              fxLayoutAlign="start start"
+              (submit)="onSubmit()">
+
+          <mat-form-field fxFlex="120px"
+                          appearance="outline">
+            <mat-label>Mark</mat-label>
+            <input matInput
+                   placeholder="Mark"
+                   type="text"
+                   formControlName="mark">
+          </mat-form-field>
+
+          <mat-form-field fxFlex
+                          appearance="outline">
+            <mat-label>Teacher comment</mat-label>
+            <input matInput
+                   placeholder="Teacher comment"
+                   type="text"
+                   formControlName="teacher_comment">
+          </mat-form-field>
+
+          <button fxFlex='48px'
+                  mat-icon-button
+                  color="primary"
+                  type="submit"
+                  aria-label="Example icon button with a home icon">
+            <mat-icon>send</mat-icon>
+          </button>
+        </form>
+      </div>
     </div>
 
-    <div class="mb-12">
-      {{homework.mark}}
-    </div>
-
-    <div class="mb-12">
-      {{homework.teacher_comment}}
-    </div>
   </mat-card-content>
 
 

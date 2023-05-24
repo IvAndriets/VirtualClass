@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 import { CoursesListComponent } from "./components/courses/courses-list/courses-list.component";
 import { CreateCoursesComponent } from "./components/courses/create-courses/create-courses.component";
 import { ViewCourseComponent } from "./components/courses/view-course/view-course.component";
-import * as fromContainers from "../../../../apps/virtual-class-ui/src/app/containers";
 import { CreateLectureComponent } from "./components/lectures/create-lecture/create-lecture.component";
 import { ViewLectureComponent } from "./components/lectures/view-lecture/view-lecture.component";
 import { HomeworksListComponent } from "./components/homeworks/homeworks-list/homeworks-list.component";
