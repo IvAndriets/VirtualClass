@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Homework, VirtualClassWebClientService } from "@virtual-class-frontend/virtual-class-web-api-v1";
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
+import { HomeworksService } from "@virtual-class-frontend/virtual-class-store";
 
 @Component({
   selector: 'virtual-class-frontend-homeworks-card',
@@ -14,6 +15,7 @@ export class HomeworksCardComponent implements OnInit {
   constructor(
     private readonly fb: UntypedFormBuilder,
     private readonly client: VirtualClassWebClientService,
+    private readonly homeworksService: HomeworksService,
   ) {
   }
 
@@ -25,6 +27,10 @@ export class HomeworksCardComponent implements OnInit {
   }
 
   onSubmit() {
-    this.client.rateHomework(this.homework.id,this.form.value).pipe().subscribe();
+    this.client.rateHomework(this.homework.id,this.form.value)
+      .pipe()
+      .subscribe((i) =>
+        this.homeworksService.loadWithQuery({ lecture_id: this.homework.lecture })
+      );
   }
 }

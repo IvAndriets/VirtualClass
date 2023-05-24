@@ -19,15 +19,14 @@ export class HomeworksListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.homeworks$ = this.routerState.getParam$('lectureId').pipe(
+    this.homeworksService.clearCache();
+    this.routerState.getParam$('lectureId').pipe(
       distinctUntilChanged(),
       filter(lectureId => !!lectureId),
-      switchMap(lectureId => this.homeworksService.getWithQuery({ lecture_id: lectureId })),
-    );
-  }
+      switchMap(lectureId => this.homeworksService.loadWithQuery({ lecture_id: lectureId })),
+    ).subscribe();
 
-  // onGrate(id) {
-  //
-  // }
+    this.homeworks$ = this.homeworksService.entities$;
+  }
 }
 
