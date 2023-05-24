@@ -20,10 +20,11 @@ export class ViewCommentsComponent {
   }
 
   ngOnInit(): void {
-    this.comments$ = this.commentsService.getWithQuery({
+    this.commentsService.clearCache();
+    this.commentsService.loadWithQuery({
       lecture_id: this.lectureId
     });
 
-    // this.comments$ = this.commentsService.entities$;
+    this.comments$ = this.commentsService.entities$;
   }
 }
