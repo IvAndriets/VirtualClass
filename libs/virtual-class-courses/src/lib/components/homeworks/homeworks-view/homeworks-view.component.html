@@ -1,1 +1,15 @@
-<p>homeworks-view works!</p>
+<mat-card *ngIf="homeworks$ | async as homeworks" class="mb-24">
+  <mat-card-content>
+    <div *ngFor="let homework of homeworks">
+      <div class="mb-16">Mark: <span>{{homework.mark}}</span></div>
+      <div class="mb-16">Teacher comment: <span>{{homework.teacher_comment}}</span></div>
+      <div class="text-truncate mb-16">File:
+        <a [href]="homework.file.url"
+           [title]="homework.file.file_name">
+          {{homework.file.file_name}}
+        </a>
+      </div>
+      <div>Created data: <span>{{homework.created_at | date: 'dd/MM/yyyy, hh:mm' }}</span></div>
+    </div>
+  </mat-card-content>
+</mat-card>
