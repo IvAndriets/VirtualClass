@@ -10,7 +10,7 @@
   </ng-container>
   <ng-container body>
     <div *ngFor="let homework of homeworks$ | async" class>
-      <virtual-class-frontend-homeworks-card [homework]="homework">
+      <virtual-class-frontend-homeworks-card [homework]="homework" [maxGrade]="maxGrade">
       </virtual-class-frontend-homeworks-card>
     </div>
   </ng-container>

@@ -10,6 +10,7 @@ import { HomeworksService } from "@virtual-class-frontend/virtual-class-store";
 })
 export class HomeworksCardComponent implements OnInit {
   @Input() homework!: Homework;
+  @Input() maxGrade!: string;
   form!: UntypedFormGroup;
 
   constructor(
@@ -21,9 +22,13 @@ export class HomeworksCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      mark: [77, [Validators.required]],
-      teacher_comment: [''],
+      mark: [this.homework.mark, [Validators.required]],
+      teacher_comment: [this.homework.teacher_comment],
     });
+  }
+
+  gradeValidator(grade: number): boolean {
+    return grade < +this.maxGrade;
   }
 
   onSubmit() {

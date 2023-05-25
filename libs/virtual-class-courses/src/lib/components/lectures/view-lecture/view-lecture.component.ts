@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { distinctUntilChanged, filter, Observable, switchMap, tap } from "rxjs";
+import { distinctUntilChanged, filter, Observable, switchMap } from "rxjs";
 import {
   Lecture,
   UserStateService,

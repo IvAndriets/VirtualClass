@@ -1,11 +1,12 @@
 <ng-container *ngIf="userRole$ | async as userRole">
   <virtual-class-frontend-shared-page *ngIf="lecture$ | async as lecture">
 
-    <ng-container title *ngIf="!editMode; else editModeBlockTitle">
+    <ng-container title>
       <div fxLayout="row"
            fxLayoutAlign="start center">
         <h2 class="mb-0"
-            data-test-id="title">
+            data-test-id="title"
+            *ngIf="!editMode; else editModeBlockTitle">
           {{lecture.name}}
           <span *ngIf="lecture.type === 'lab'">lab</span>
         </h2>
@@ -32,12 +33,13 @@
       <a mat-raised-button routerLink="homeworks">Students work</a>
     </ng-container>
 
-    <ng-container body *ngIf="!editMode; else editModeBlockBody">
+    <ng-container body>
       <div fxLayout="row"
            fxLayoutAlign="space-between center"
            class="mb-24">
         <div fxFlex="70">
-          <div class="mb-24">
+          <div class="mb-24"
+               *ngIf="!editMode; else editModeBlockBody">
             {{lecture.description}}
           </div>
 
@@ -47,7 +49,9 @@
             </div>
             <span class="text-muted">
               Created at date: {{lecture.created_at | date: 'dd/MM/yyyy, hh:mm'}}
-              Due date: {{lecture.due_date | date: 'dd/MM/yyyy, hh:mm'}}
+              <span *ngIf="lecture.type === 'lab'">
+                Due date: {{lecture.due_date | date: 'dd/MM/yyyy, hh:mm'}}
+              </span>
           </span>
           </div>
         </div>

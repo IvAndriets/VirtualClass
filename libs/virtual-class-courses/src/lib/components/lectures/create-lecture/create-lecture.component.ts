@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
-import { CoursesService, LecturesService } from "@virtual-class-frontend/virtual-class-store";
-import { RouterStateService } from "@virtual-class-frontend/virtual-class-core";
-import { distinctUntilChanged, filter, first, switchMap } from "rxjs";
+import { LecturesService } from "@virtual-class-frontend/virtual-class-store";
+
 
 @Component({
   selector: 'virtual-class-frontend-create-lecture',
