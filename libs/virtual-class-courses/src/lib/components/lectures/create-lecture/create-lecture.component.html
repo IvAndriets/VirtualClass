@@ -35,12 +35,12 @@
       <div class="mb-24">
         <mat-radio-group aria-label="Type"
                          formControlName="type">
-          <mat-radio-button value="lecture">Lecture</mat-radio-button>
-          <mat-radio-button value="lab">Lab</mat-radio-button>
+          <mat-radio-button value="lecture" (click)="changeType(false)">Lecture</mat-radio-button>
+          <mat-radio-button value="lab" (click)="changeType(true)">Lab</mat-radio-button>
         </mat-radio-group>
       </div>
 
-      <div *ngIf="true">
+      <div *ngIf="lectureType" class="display-none">
         <mat-form-field appearance="outline">
           <mat-label>Max grade</mat-label>
           <input matInput

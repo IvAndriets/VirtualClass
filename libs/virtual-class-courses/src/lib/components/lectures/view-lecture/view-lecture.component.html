@@ -1,7 +1,7 @@
 <ng-container *ngIf="userRole$ | async as userRole">
   <virtual-class-frontend-shared-page *ngIf="lecture$ | async as lecture">
 
-    <ng-container title>
+    <ng-container title *ngIf="!editMode; else editModeBlockTitle">
       <div fxLayout="row"
            fxLayoutAlign="start center">
         <h2 class="mb-0"
@@ -12,11 +12,27 @@
       </div>
     </ng-container>
 
+    <ng-container action *ngIf="userRole?.includes('Teacher')">
+      <div>
+        <div fxLayout
+             fxLayoutAlign="end center"
+             fxLayoutGap="8px">
+          <button mat-icon-button
+                  aria-label="logOut"
+                  [matTooltip]="editMode ? 'Preview course' : 'Edit Course'"
+                  (click)="onToggleMode()">
+            <mat-icon>
+              {{editMode ? 'preview' : 'edit_document'}}
+            </mat-icon>
+          </button>
+        </div>
+      </div>
+    </ng-container>
     <ng-container action *ngIf="lecture.type === 'lab' && userRole?.includes('Teacher')">
       <a mat-raised-button routerLink="homeworks">Students work</a>
     </ng-container>
 
-    <ng-container body>
+    <ng-container body *ngIf="!editMode; else editModeBlockBody">
       <div fxLayout="row"
            fxLayoutAlign="space-between center"
            class="mb-24">
@@ -51,6 +67,7 @@
                        (change)="uploadSelectedFiles($event)">
                 <button mat-flat-button
                         color="primary"
+                        *ngIf="userRole?.includes('Teacher')"
                         (click)="fileInput.click()">
                   Upload Files
                 </button>
@@ -73,3 +90,54 @@
 
   </virtual-class-frontend-shared-page>
 </ng-container>
+
+
+<ng-template #editModeBlockTitle>
+  <form *ngIf="form"
+        [formGroup]="form"
+        fxLayout="column"
+        fxLayoutAlign="start start"
+        class="mb-24"
+        (submit)="onSubmitLecture()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput
+             placeholder="Name"
+             type="text"
+             formControlName="name">
+      <mat-error>
+        Required
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</ng-template>
+
+
+<ng-template #editModeBlockBody>
+  <form *ngIf="form"
+        [formGroup]="form"
+        fxLayout="column"
+        fxLayoutAlign="start start"
+        class="mb-24"
+        (submit)="onSubmitLecture()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput
+             placeholder="Description"
+             type="text"
+             formControlName="description">
+      <mat-error>
+        Required
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-flat-button
+            type="submit"
+            color="primary">
+      Update
+    </button>
+  </form>
+</ng-template>

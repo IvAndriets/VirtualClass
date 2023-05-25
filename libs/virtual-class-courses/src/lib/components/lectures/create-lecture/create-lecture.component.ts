@@ -11,6 +11,7 @@ import { distinctUntilChanged, filter, first, switchMap } from "rxjs";
 })
 export class CreateLectureComponent implements OnInit {
   form!: UntypedFormGroup;
+  lectureType = false;
 
   constructor(
     private readonly fb: UntypedFormBuilder,
@@ -30,6 +31,10 @@ export class CreateLectureComponent implements OnInit {
 
   isLab(): boolean {
     return this.form.get('type')?.value === 'lab';
+  }
+
+  changeType(lectureTypes:boolean) :void {
+    this.lectureType = lectureTypes;
   }
 
   onSubmit() {
